@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0B363F2B-43BB-4301-95E1-C5548C42080D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PreprocessorLib</RootNamespace>
+    <AssemblyName>PreprocessorLib</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tao.OpenGl, Version=2.1.0.12, Culture=neutral, PublicKeyToken=1ca010269a4501ef, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Tao.OpenGl.dll</HintPath>
+    </Reference>
+    <Reference Include="Tao.Platform.Windows, Version=1.0.0.5, Culture=neutral, PublicKeyToken=701104b2da67a104, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Tao.Platform.Windows.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddArcsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AddArcsControl.Designer.cs">
+      <DependentUpon>AddArcsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddAreasControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AddAreasControl.Designer.cs">
+      <DependentUpon>AddAreasControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddBoundsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AddBoundsControl.Designer.cs">
+      <DependentUpon>AddBoundsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddCirclesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AddCirclesControl.Designer.cs">
+      <DependentUpon>AddCirclesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddMaterials.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddMaterials.Designer.cs">
+      <DependentUpon>AddMaterials.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddPointsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AddPointsControl.Designer.cs">
+      <DependentUpon>AddPointsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddStraightLinesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AddStraightLinesControl.Designer.cs">
+      <DependentUpon>AddStraightLinesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="constructionAreaEvents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Delauney.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Delauney.Designer.cs">
+      <DependentUpon>Delauney.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DelauneySettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DelauneySettings.Designer.cs">
+      <DependentUpon>DelauneySettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteBounds.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeleteBounds.Designer.cs">
+      <DependentUpon>DeleteBounds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteForces.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeleteForces.Designer.cs">
+      <DependentUpon>DeleteForces.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrawMethods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Export.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExportForm.designer.cs">
+      <DependentUpon>ExportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridAnalysis.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GridAnalysis.Designer.cs">
+      <DependentUpon>GridAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridAnalysisStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridAnalysisStatistics.Designer.cs">
+      <DependentUpon>GridAnalysisStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteAllAreasControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeleteAllAreasControl.Designer.cs">
+      <DependentUpon>DeleteAllAreasControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteAreasControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeleteAreasControl.Designer.cs">
+      <DependentUpon>DeleteAreasControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteCirclesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeleteCirclesControl.Designer.cs">
+      <DependentUpon>DeleteCirclesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteLinesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeleteLinesControl.Designer.cs">
+      <DependentUpon>DeleteLinesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeletePointsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeletePointsControl.Designer.cs">
+      <DependentUpon>DeletePointsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DivideIntoFE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DivideIntoFE.Designer.cs">
+      <DependentUpon>DivideIntoFE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditNodesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EditNodesControl.Designer.cs">
+      <DependentUpon>EditNodesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditPointsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EditPointsControl.Designer.cs">
+      <DependentUpon>EditPointsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forces.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forces.Designer.cs">
+      <DependentUpon>Forces.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectForm.designer.cs">
+      <DependentUpon>ProjectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Regularization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Regularization.Designer.cs">
+      <DependentUpon>Regularization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RuppertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RuppertForm.Designer.cs">
+      <DependentUpon>RuppertForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SetMaterials.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetMaterials.Designer.cs">
+      <DependentUpon>SetMaterials.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditMaterials.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditMaterials.Designer.cs">
+      <DependentUpon>EditMaterials.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StdOptimisation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StdOptimisation.designer.cs">
+      <DependentUpon>StdOptimisation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UndoRedo.cs" />
+    <Compile Include="Util.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AddArcsControl.resx">
+      <DependentUpon>AddArcsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddAreasControl.resx">
+      <DependentUpon>AddAreasControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddBoundsControl.resx">
+      <DependentUpon>AddBoundsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddCirclesControl.resx">
+      <DependentUpon>AddCirclesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddMaterials.resx">
+      <DependentUpon>AddMaterials.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddPointsControl.resx">
+      <DependentUpon>AddPointsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddStraightLinesControl.resx">
+      <DependentUpon>AddStraightLinesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Delauney.resx">
+      <DependentUpon>Delauney.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DelauneySettings.resx">
+      <DependentUpon>DelauneySettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteAllAreasControl.resx">
+      <DependentUpon>DeleteAllAreasControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteAreasControl.resx">
+      <DependentUpon>DeleteAreasControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteBounds.resx">
+      <DependentUpon>DeleteBounds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteCirclesControl.resx">
+      <DependentUpon>DeleteCirclesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteForces.resx">
+      <DependentUpon>DeleteForces.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteLinesControl.resx">
+      <DependentUpon>DeleteLinesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeletePointsControl.resx">
+      <DependentUpon>DeletePointsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DivideIntoFE.resx">
+      <DependentUpon>DivideIntoFE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditNodesControl.resx">
+      <DependentUpon>EditNodesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditPointsControl.resx">
+      <DependentUpon>EditPointsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExportForm.resx">
+      <DependentUpon>ExportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forces.resx">
+      <DependentUpon>Forces.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridAnalysis.resx">
+      <DependentUpon>GridAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridAnalysisStatistics.resx">
+      <DependentUpon>GridAnalysisStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectForm.resx">
+      <DependentUpon>ProjectForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Regularization.resx">
+      <DependentUpon>Regularization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RuppertForm.resx">
+      <DependentUpon>RuppertForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetMaterials.resx">
+      <DependentUpon>SetMaterials.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditMaterials.resx">
+      <DependentUpon>EditMaterials.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StdOptimisation.resx">
+      <DependentUpon>StdOptimisation.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\dataSet\ModelComponents.csproj">
+      <Project>{44C646B0-1CFB-4D57-82A0-6E91A0096269}</Project>
+      <Name>ModelComponents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DelauneyTriangulator\DelauneySweepHull.csproj">
+      <Project>{0E7A128B-2A26-46DE-9F90-97CA41D2B53D}</Project>
+      <Name>DelauneySweepHull</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Delauney\DelauneyPaulBourke.csproj">
+      <Project>{3F0D8CDB-DA69-4402-8E2A-6F97A81CFF27}</Project>
+      <Name>DelauneyPaulBourke</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ELW.Library.Math\ELW.Library.Math.csproj">
+      <Project>{0374C9F1-8508-421C-82A7-8D5DADB2B49A}</Project>
+      <Name>ELW.Library.Math</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FrontalMethod\FrontalMethod.csproj">
+      <Project>{496FCBAD-120E-4A21-BF4E-19324C03C65C}</Project>
+      <Name>FrontalMethod</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mathematics\PreprocessorUtils.csproj">
+      <Project>{632CFF93-39C2-41FC-B94C-2BA499D05D51}</Project>
+      <Name>PreprocessorUtils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
