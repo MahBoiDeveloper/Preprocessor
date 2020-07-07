@@ -111,7 +111,6 @@
             this.Load += new System.EventHandler(this.DeleteLinesControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

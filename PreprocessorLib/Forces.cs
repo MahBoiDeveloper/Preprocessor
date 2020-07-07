@@ -27,7 +27,6 @@ namespace PreprocessorLib
             InitializeComponent();
             this.parent = parent;
             this.TopMost = true;
-
         }
 
         private enum LineAngleType : byte
@@ -158,7 +157,6 @@ namespace PreprocessorLib
             }
             else if (arcs.Count != 0)
             {
-
                 List<MyPoint> points = new List<MyPoint>();
                 if (checkArcsConnect(ref arcs, ref points, currentModel) == false)
                 {
@@ -172,7 +170,6 @@ namespace PreprocessorLib
                 getNodesOnArc(arcs, ref nodes, currentModel, linesposition);
                 this.number.Text = Convert.ToString(nodes.Count);
                 this.calculateForceAtNodes(nodes, LineType.IsArc, arcs.ElementAt(0), currentModel);
-
             }
             parent.clearSelection();
             if (this.parent.currentFullModel.FiniteElementModels[currentModel].R.Count == 0)
@@ -191,7 +188,6 @@ namespace PreprocessorLib
                 m++;
             }
 
-
             this.parent.DrawForces(Color.Purple);
             this.parent.currentFullModel.FiniteElementModels[currentModel].NLD++;
             if (this.parent.showForces.Checked != true) this.parent.showForces.Checked = true;
@@ -205,7 +201,6 @@ namespace PreprocessorLib
             this.parent.currentFullModel.geometryModel.highlightArcs.Clear();
             this.parent.ReDrawAll();
             this.parent.clearSelection();
-
         }
 
         private void getNodesOnLine(List<MyStraightLine> lines, ref List<MyNode> nodes, int currentModel, LineType linesposition)
@@ -964,7 +959,6 @@ namespace PreprocessorLib
 
         private void function_TextChanged(object sender, EventArgs e)
         {
-
         }
     }
 }

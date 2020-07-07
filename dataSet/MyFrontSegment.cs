@@ -35,7 +35,8 @@ namespace ModelComponents
         private void createSegment(ICollection<MyNode> _nodes) {
             Nodes = new List<MyNode>(_nodes.Count);
             baseNodes = new List<MyNode>(_nodes.Count);
-            foreach(MyNode node in _nodes) {
+            foreach(MyNode node in _nodes)
+            {
                 Nodes.Add(new MyNode(node.X, node.Y, node.Id));
                 baseNodes.Add(new MyNode(node.X, node.Y, node.Id ));
             }

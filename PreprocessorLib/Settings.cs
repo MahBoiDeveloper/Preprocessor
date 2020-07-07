@@ -44,8 +44,6 @@ namespace PreprocessorLib
             this.showOnlyFE.Checked = this.parent.currentFullModel.settings.ShowOnlyFE;
         }
 
-
-
         private void saveButton_Click(object sender, EventArgs e)
         {
             this.SAVE();
@@ -75,7 +73,6 @@ namespace PreprocessorLib
             this.parent.showOnlyAreas.Checked = this.showFEMaterials.Checked;
             this.parent.showOnlyGeometry.Checked = this.showOnlyGeometry.Checked;
             this.parent.showOnlyFE.Checked = this.showOnlyFE.Checked;
-
 
             this.parent.ReDrawAll();
             this.Close();
@@ -117,8 +114,5 @@ namespace PreprocessorLib
             this.showFENodes.Enabled = this.showFE.Checked;
             this.showFEMaterials.Enabled = this.showFE.Checked;
         }
-
-
-
     }
 }

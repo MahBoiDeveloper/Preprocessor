@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ELW.Library.Math.Expressions {
+namespace ELW.Library.Math.Expressions
+{
     /// <summary>
     /// Delimiters supported.
     /// </summary>
-    public enum DelimiterKind {
+    public enum DelimiterKind
+    {
         OpeningBrace = 1,
         ClosingBrace = 2,
         Comma = 3
@@ -15,7 +17,8 @@ namespace ELW.Library.Math.Expressions {
     /// <summary>
     /// Type of prepared expression item content.
     /// </summary>
-    public enum PreparedExpressionItemKind {
+    public enum PreparedExpressionItemKind
+    {
         /// <summary>
         /// Constant value.
         /// </summary>
@@ -37,55 +40,71 @@ namespace ELW.Library.Math.Expressions {
     /// <summary>
     /// Represents a prepared sequence of precompiled items for compiling.
     /// </summary>
-    public sealed class PreparedExpression {
+    public sealed class PreparedExpression 
+    {
         public readonly List<PreparedExpressionItem> preparedExpressionItems;
-        public List<PreparedExpressionItem> PreparedExpressionItems {
-            get {
+        public List<PreparedExpressionItem> PreparedExpressionItems
+        {
+            get
+            {
                 return preparedExpressionItems;
             }
         }
 
-        public PreparedExpression(List<PreparedExpressionItem> preparedExpressionItems) {
+        public PreparedExpression(List<PreparedExpressionItem> preparedExpressionItems)
+        {
             this.preparedExpressionItems = preparedExpressionItems;
         }
 
-        public override string ToString() {
+        public override string ToString()
+        {
             StringBuilder stringBuilder = new StringBuilder();
-            foreach (PreparedExpressionItem item in preparedExpressionItems) {
+            foreach (PreparedExpressionItem item in preparedExpressionItems)
+            {
                 switch (item.Kind) {
-                    case PreparedExpressionItemKind.Constant: {
+                    case PreparedExpressionItemKind.Constant:
+                    {
                         stringBuilder.Append(item.Constant.ToString());
                         break;
                     }
-                    case PreparedExpressionItemKind.Delimiter: {
-                        switch (item.DelimiterKind) {
-                            case DelimiterKind.OpeningBrace: {
+                    case PreparedExpressionItemKind.Delimiter:
+                    {
+                        switch (item.DelimiterKind)
+                        {
+                            case DelimiterKind.OpeningBrace:
+                            {
                                 stringBuilder.Append("(");
                                 break;
                             }
-                            case DelimiterKind.ClosingBrace: {
+                            case DelimiterKind.ClosingBrace:
+                            {
                                 stringBuilder.Append(")");
                                 break;
                             }
-                            case DelimiterKind.Comma: {
+                            case DelimiterKind.Comma:
+                            {
                                 stringBuilder.Append(",");
                                 break;
                             }
-                            default: {
+                            default:
+                            {
                                 throw new InvalidOperationException("Unknown delimiter kind.");
                             }
                         }
                         break;
                     }
-                    case PreparedExpressionItemKind.Variable: {
+                    case PreparedExpressionItemKind.Variable:
+                    {
                         stringBuilder.Append(item.VariableName);
                         break;
                     }
-                    case PreparedExpressionItemKind.Signature: {
+                    case PreparedExpressionItemKind.Signature:
+                    {
                         stringBuilder.Append(item.Signature);
                         break;
                     }
-                    default: {
+                    default:
+                    {
                         throw new InvalidOperationException("Unknown item kind.");
                     }
                 }
@@ -98,71 +117,89 @@ namespace ELW.Library.Math.Expressions {
     /// <summary>
     /// Represents a part of parsed expression or decompiled expression.
     /// </summary>
-    public sealed class PreparedExpressionItem {
+    public sealed class PreparedExpressionItem
+    {
         private readonly PreparedExpressionItemKind kind;
-        public PreparedExpressionItemKind Kind {
-            get {
+        public PreparedExpressionItemKind Kind
+        {
+            get
+            {
                 return kind;
             }
         }
 
         private readonly double constant;
-        public double Constant {
-            get {
+        public double Constant
+        {
+            get
+            {
                 return constant;
             }
         }
 
         private readonly string variableName;
-        public string VariableName {
-            get {
+        public string VariableName
+        {
+            get
+            {
                 return variableName;
             }
         }
 
         private readonly DelimiterKind delimiterKind;
-        public DelimiterKind DelimiterKind {
-            get {
+        public DelimiterKind DelimiterKind
+        {
+            get
+            {
                 return delimiterKind;
             }
         }
 
         private readonly string signature;
-        public string Signature {
-            get {
+        public string Signature
+        {
+            get
+            {
                 return signature;
             }
         }
 
-        public PreparedExpressionItem(PreparedExpressionItemKind kind, object value) {
+        public PreparedExpressionItem(PreparedExpressionItemKind kind, object value)
+        {
             if (value == null)
                 throw new ArgumentNullException("value");
-            //
+            
             this.kind = kind;
             switch (kind) {
-                case PreparedExpressionItemKind.Constant: {
+                case PreparedExpressionItemKind.Constant:
+                {
                     constant = (double) value;
                     break;
                 }
-                case PreparedExpressionItemKind.Variable: {
+                case PreparedExpressionItemKind.Variable:
+                {
                     variableName = (string) value;
                     break;
                 }
-                case PreparedExpressionItemKind.Delimiter: {
+                case PreparedExpressionItemKind.Delimiter:
+                {
                     delimiterKind = (DelimiterKind) value;
                     break;
                 }
-                case PreparedExpressionItemKind.Signature: {
+                case PreparedExpressionItemKind.Signature:
+                {
                     signature = (string) value;
                     break;
                 }
-                default: {
+                default:
+                {
                     throw new InvalidOperationException("Unexpected item kind.");
                 }
             }
         }
 
-        public override string ToString() {
+        public override string ToString()
+        {
             return String.Format("PreparedExpressionItem {0}", kind);
         }
     }

@@ -249,7 +249,6 @@
             this.Text = "Добавить материал";
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

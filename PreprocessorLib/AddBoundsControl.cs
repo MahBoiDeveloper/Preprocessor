@@ -21,7 +21,6 @@ namespace PreprocessorLib
             this.parent = parent;
         }
 
-
         private void OK()
         {
             if (txtLine.Text == string.Empty && txtNode.Text == string.Empty) return;
@@ -164,8 +163,6 @@ namespace PreprocessorLib
             this.OK();
         }
 
-
-
         private void txtLine_Enter(object sender, EventArgs e)
         {
             if (!rbnOnLine.Checked)
@@ -180,7 +177,6 @@ namespace PreprocessorLib
 
         private void xBound_CheckedChanged(object sender, EventArgs e)
         {
-
         }
     }
 }

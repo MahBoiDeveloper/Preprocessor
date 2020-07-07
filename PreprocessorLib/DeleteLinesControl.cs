@@ -103,8 +103,6 @@ namespace PreprocessorLib
             }
         }  
 
-
-
         private void AddPoint_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (int)Keys.Enter)
@@ -125,7 +123,6 @@ namespace PreprocessorLib
 
         private void DeleteLinesControl_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

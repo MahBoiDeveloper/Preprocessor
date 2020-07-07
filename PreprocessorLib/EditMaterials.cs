@@ -172,7 +172,6 @@ namespace PreprocessorLib
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-
         }
 
         private void deleteMaterialButton_Click(object sender, EventArgs e)
@@ -207,7 +206,6 @@ namespace PreprocessorLib
 
         private void materialName_TextChanged(object sender, EventArgs e)
         {
-
         }
     }
 }

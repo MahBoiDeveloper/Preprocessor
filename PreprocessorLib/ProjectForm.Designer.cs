@@ -32,78 +32,51 @@
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Добавить точки");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Редактировать точки");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Удалить точки");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Точки", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3});
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Точки", new System.Windows.Forms.TreeNode[]
+            { treeNode1, treeNode2, treeNode });
             System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Добавить прямые линии");
             System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Добавить окружности");
             System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Добавить дуги");
             System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Удалить линии");
             System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Удалить окружности");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Линии", new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6,
-            treeNode7,
-            treeNode8,
-            treeNode9});
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Линии", new System.Windows.Forms.TreeNode[]
+            { treeNode5, treeNode6, treeNode7, treeNode8, treeNode9 });
             System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Импорт модели");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Геометрия модели", new System.Windows.Forms.TreeNode[] {
-            treeNode4,
-            treeNode10,
-            treeNode11});
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Геометрия модели", new System.Windows.Forms.TreeNode[]
+            { treeNode4, treeNode10, treeNode11 });
             System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Добавить зоны");
             System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Удалить зоны");
             System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Удалить все зоны");
             System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Редактировать узлы");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Зоны", new System.Windows.Forms.TreeNode[] {
-            treeNode13,
-            treeNode14,
-            treeNode15,
-            treeNode16});
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Зоны", new System.Windows.Forms.TreeNode[]
+            { treeNode13, treeNode14, treeNode15, treeNode16 });
             System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Метод изопарам. координат");
             System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Фронтальный метод");
             System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Метод Делоне");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Триангуляция", new System.Windows.Forms.TreeNode[] {
-            treeNode18,
-            treeNode19,
-            treeNode20});
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Триангуляция", new System.Windows.Forms.TreeNode[]
+            { treeNode18, treeNode19, treeNode20 });
             System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Увеличение минимального угла");
             System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Регуляризация");
             System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Методы Рапперта");
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Оптимизация", new System.Windows.Forms.TreeNode[] {
-            treeNode22,
-            treeNode23,
-            treeNode24});
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Оптимизация", new System.Windows.Forms.TreeNode[]
+            { treeNode22, treeNode23, treeNode24 });
             System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Анализ");
             System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Добавить закрепления");
             System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Удалить закрепления");
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Закрепления", new System.Windows.Forms.TreeNode[] {
-            treeNode27,
-            treeNode28});
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Закрепления", new System.Windows.Forms.TreeNode[]
+            { treeNode27, treeNode28 });
             System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Добавить нагрузку");
             System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Удалить нагрузку");
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Нагрузки", new System.Windows.Forms.TreeNode[] {
-            treeNode30,
-            treeNode31});
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Нагрузки", new System.Windows.Forms.TreeNode[]
+            { treeNode30, treeNode31 });
             System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Добавить материалы");
             System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Редактировать материалы");
             System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Назначение материалов");
-            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Материалы", new System.Windows.Forms.TreeNode[] {
-            treeNode33,
-            treeNode34,
-            treeNode35});
+            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Материалы", new System.Windows.Forms.TreeNode[]
+            { treeNode33, treeNode34, treeNode35 });
             System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Экспорт в CAE Sigma");
-            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Препроцессор", new System.Windows.Forms.TreeNode[] {
-            treeNode12,
-            treeNode17,
-            treeNode21,
-            treeNode25,
-            treeNode26,
-            treeNode29,
-            treeNode32,
-            treeNode36,
-            treeNode37});
+            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Препроцессор", new System.Windows.Forms.TreeNode[]
+            { treeNode12, treeNode17, treeNode21, treeNode25, treeNode26, treeNode29, treeNode32, treeNode36, treeNode37 });
             System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("Варианты сетки КЭ:");
             this.label3 = new System.Windows.Forms.Label();
             this.scaleField = new System.Windows.Forms.TextBox();
@@ -734,7 +707,6 @@
             this.cmsGrid.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

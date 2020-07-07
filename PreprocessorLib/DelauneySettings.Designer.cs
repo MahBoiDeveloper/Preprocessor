@@ -116,25 +116,13 @@
             // nudMinAreaDistance
             // 
             this.nudMinAreaDistance.DecimalPlaces = 2;
-            this.nudMinAreaDistance.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
+            this.nudMinAreaDistance.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
             this.nudMinAreaDistance.Location = new System.Drawing.Point(141, 74);
-            this.nudMinAreaDistance.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
+            this.nudMinAreaDistance.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             this.nudMinAreaDistance.Name = "nudMinAreaDistance";
             this.nudMinAreaDistance.Size = new System.Drawing.Size(51, 20);
             this.nudMinAreaDistance.TabIndex = 27;
-            this.nudMinAreaDistance.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.nudMinAreaDistance.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // label4
             // 
@@ -158,24 +146,12 @@
             // nudAreaDensity
             // 
             this.nudAreaDensity.Location = new System.Drawing.Point(141, 48);
-            this.nudAreaDensity.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudAreaDensity.Minimum = new decimal(new int[] {
-            8,
-            0,
-            0,
-            0});
+            this.nudAreaDensity.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+            this.nudAreaDensity.Minimum = new decimal(new int[] { 8, 0, 0, 0 });
             this.nudAreaDensity.Name = "nudAreaDensity";
             this.nudAreaDensity.Size = new System.Drawing.Size(51, 20);
             this.nudAreaDensity.TabIndex = 24;
-            this.nudAreaDensity.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
+            this.nudAreaDensity.Value = new decimal(new int[] { 10, 0, 0, 0 });
             // 
             // label8
             // 
@@ -189,19 +165,11 @@
             // nudArea
             // 
             this.nudArea.Location = new System.Drawing.Point(141, 22);
-            this.nudArea.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.nudArea.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             this.nudArea.Name = "nudArea";
             this.nudArea.Size = new System.Drawing.Size(51, 20);
             this.nudArea.TabIndex = 22;
-            this.nudArea.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.nudArea.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // label7
             // 
@@ -279,25 +247,13 @@
             // nudMinSectorDistance
             // 
             this.nudMinSectorDistance.DecimalPlaces = 2;
-            this.nudMinSectorDistance.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
+            this.nudMinSectorDistance.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
             this.nudMinSectorDistance.Location = new System.Drawing.Point(141, 78);
-            this.nudMinSectorDistance.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
+            this.nudMinSectorDistance.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             this.nudMinSectorDistance.Name = "nudMinSectorDistance";
             this.nudMinSectorDistance.Size = new System.Drawing.Size(51, 20);
             this.nudMinSectorDistance.TabIndex = 37;
-            this.nudMinSectorDistance.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.nudMinSectorDistance.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // label5
             // 
@@ -321,19 +277,11 @@
             // nudDensitySector
             // 
             this.nudDensitySector.Location = new System.Drawing.Point(141, 52);
-            this.nudDensitySector.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
+            this.nudDensitySector.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             this.nudDensitySector.Name = "nudDensitySector";
             this.nudDensitySector.Size = new System.Drawing.Size(51, 20);
             this.nudDensitySector.TabIndex = 30;
-            this.nudDensitySector.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
+            this.nudDensitySector.Value = new decimal(new int[] { 10, 0, 0, 0 });
             // 
             // label11
             // 
@@ -348,19 +296,11 @@
             // 
             this.nudRadius.DecimalPlaces = 2;
             this.nudRadius.Location = new System.Drawing.Point(141, 25);
-            this.nudRadius.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
+            this.nudRadius.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             this.nudRadius.Name = "nudRadius";
             this.nudRadius.Size = new System.Drawing.Size(51, 20);
             this.nudRadius.TabIndex = 28;
-            this.nudRadius.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            this.nudRadius.Value = new decimal(new int[] { 5, 0, 0, 0 });
             // 
             // label10
             // 
@@ -440,7 +380,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudDensitySector)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudRadius)).EndInit();
             this.ResumeLayout(false);
-
         }
 
         #endregion

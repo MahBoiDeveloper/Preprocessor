@@ -97,6 +97,5 @@ namespace PreprocessorLib
         {
             this.Close();
         }
-
     }
 }

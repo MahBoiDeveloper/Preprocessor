@@ -63,9 +63,7 @@ namespace PreprocessorLib
             List<MyArc> arcs = new List<MyArc>();
             List<MyLine> lines = new List<MyLine>();
 
-            /*
-                * ИЩЕМ ЛИНИИ
-                */
+            // ищем линии
             for (int i = 0; i < 4; i++)
             {
                 MyLine currentLine;
@@ -104,10 +102,7 @@ namespace PreprocessorLib
                 }
             }
 
-
-            /*
-            * ЗАКОНЧИЛИ ПОИСК ЛИНИЙ 
-            */
+            // закончили поиск линий
 
             if (!lineExists.Contains(false))
             {
@@ -117,8 +112,6 @@ namespace PreprocessorLib
                 if (points.Count == 4) // условие, определяющее то, что линии образуют замкнутую область
                 {
                     errorMessage3.Visible = false;
-
-
                     // проверяем число зон, в которым принадлежать линии
                     foreach (MyLine l in lines)
                     {
@@ -177,7 +170,6 @@ namespace PreprocessorLib
                         lines[secondLine] = tempLine;
                     }
 
-
                     // определяем четвертую (последниюю) линию в списке линий. определения третий линии нет, и это не ошибка. она определится автоматом
                     int lastLine = 3;
                     point = lines[0].StartPoint;
@@ -195,9 +187,6 @@ namespace PreprocessorLib
                         lines[3] = lines[lastLine];
                         lines[lastLine] = tempLine;
                     }
-
-
-                    //
 
                     points.Clear();
                     int newAreaId;
@@ -473,7 +462,6 @@ namespace PreprocessorLib
             return S;
         }
 
-
         private double pointsDistance(MyPoint p1, MyPoint p2)
         {
             return ((double)Math.Pow((p1.X - p2.X) * (p1.X - p2.X) + (p1.Y - p2.Y) * (p1.Y - p2.Y), 0.5));
@@ -585,7 +573,6 @@ namespace PreprocessorLib
             this.line1.Select();
         }
 
-
         private void number_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (int)Keys.Enter) OK();
@@ -615,6 +602,5 @@ namespace PreprocessorLib
             if (e.KeyChar == (int)Keys.Enter) OK();
             else if (e.KeyChar == (int)Keys.Escape) Dispose();
         }
-
     }
 }

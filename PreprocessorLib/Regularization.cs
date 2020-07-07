@@ -27,7 +27,6 @@ namespace PreprocessorLib
 
             gridName.Text = "Сетка №" + (currentModelIndex + 1).ToString();
             TopMost = true;
-
         }
 
         /// <summary>
@@ -190,7 +189,6 @@ namespace PreprocessorLib
             parent.activeForm = null;
             parent.clearSelection();
             parent.ReDrawAll();
-            
         }
     }
 }

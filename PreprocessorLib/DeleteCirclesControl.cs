@@ -52,7 +52,6 @@ namespace PreprocessorLib
 
                     this.number.Select();
                     
-
                     break;
                 }
             }

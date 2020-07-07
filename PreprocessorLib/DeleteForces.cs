@@ -72,7 +72,6 @@ namespace PreprocessorLib
             this.textBox1.Select();
         }
 
-
         private void UnboundNode(MyNode node)
         {
             node.ForceX = 0;
@@ -83,7 +82,6 @@ namespace PreprocessorLib
         {
             deleteForces();
         }
-
 
         private void deleteForces()
         {

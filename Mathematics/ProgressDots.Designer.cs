@@ -73,7 +73,6 @@
             this.Load += new System.EventHandler(this.ProgressDots_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

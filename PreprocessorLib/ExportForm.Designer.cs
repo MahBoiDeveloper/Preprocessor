@@ -93,7 +93,6 @@
             this.Text = "Экспорт";
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

@@ -32,8 +32,6 @@ namespace PreprocessorLib
             settingsForm.FormClosing += new FormClosingEventHandler(settingsForm_FormClosing);
         }
 
-
-
         private List<MyNode> findNodesAtStraightLine(List<MyNode> nodes, MyStraightLine sline)
         {
             List<MyNode> result = new List<MyNode>();

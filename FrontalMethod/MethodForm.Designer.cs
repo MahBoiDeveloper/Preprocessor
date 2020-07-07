@@ -537,7 +537,6 @@
             this.visualBox.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
@@ -582,7 +581,5 @@
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Label buildDelay;
         private System.Windows.Forms.Button defaultNodes;
-
     }
 }
-

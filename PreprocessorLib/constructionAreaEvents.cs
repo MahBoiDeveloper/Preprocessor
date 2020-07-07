@@ -19,7 +19,6 @@ namespace PreprocessorLib
 
         double mouseXcord, mouseYcord;
 
-
         private void constructionArea_MouseWheel(object sender, MouseEventArgs e)
         {
             if (e.Delta > 0) scalePlus();
@@ -36,7 +35,7 @@ namespace PreprocessorLib
             
             if (e.Button == MouseButtons.Left)
             {
-                /* кусочек, который отвечает за перетаскивание области построения */
+                // кусочек, который отвечает за перетаскивание области построения 
                 if (!this.mouseAboveEditedPoint && !this.mouseAboveEditedNode && this.currentFullModel.geometryModel.editedPoint == null)
                 {
                     this.mouseMoved = true;
@@ -45,7 +44,7 @@ namespace PreprocessorLib
                     mouseY = e.Y;
                 }
 
-                /* кусочек, который отвечает за перетаскивание точки в режиме редактирования точки*/
+                // кусочек, который отвечает за перетаскивание точки в режиме редактирования точки
                 if (this.editPointsControl != null && this.editPointsControl.IsHandleCreated && this.mouseAboveEditedPoint)
                 {
                     if (this.currentFullModel.geometryModel.editedPoint != null)
@@ -117,9 +116,8 @@ namespace PreprocessorLib
                         }
                     }
                 }
-                //////////////////////////////////////////////////////////////////  
 
-                //кусочек, который отвечает за перетаскивание узла зоны в режиме редактирования узлов зоны
+                // кусочек, который отвечает за перетаскивание узла зоны в режиме редактирования узлов зоны
                 if (this.editNodesControl != null && this.editNodesControl.IsHandleCreated && this.mouseAboveEditedNode)
                 {
                     if (this.currentFullModel.geometryModel.editedNode != null)
@@ -143,7 +141,6 @@ namespace PreprocessorLib
                     }
 
                 }
-                //////////////////////////////////////////////////////////////////  
             }
             else
             {

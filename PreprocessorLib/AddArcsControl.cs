@@ -38,7 +38,6 @@ namespace PreprocessorLib
             if (this.сlockwise.Checked) cw = true;
             else cw = false;
 
-
             if (this.number.TextLength == 0 || this.center2Point.TextLength == 0 || this.start2Point.TextLength == 0 || this.end2Point.TextLength == 0)
             {
                 this.errorMessage1.Visible = true;
@@ -76,7 +75,6 @@ namespace PreprocessorLib
                 {
                     point3 = point;
                     centerPointExists = true; // нашли центральую точку
-
                 }
             }
 
@@ -91,12 +89,10 @@ namespace PreprocessorLib
             MyArc newArc = new MyArc(number, cw, p1, p2, p3);
             if (this.parent.TestArc(newArc))
             {
-
                 this.parent.currentFullModel.geometryModel.Arcs.Add(newArc);
                 this.parent.currentFullModel.geometryModel.NumOfLines++;
 
                 this.number.Text = (parent.currentFullModel.geometryModel.NumOfLines + 1).ToString();
-
 
                 this.start2Point.TextChanged -= new System.EventHandler(this.start2Point_TextChanged);
                 this.end2Point.TextChanged -= new System.EventHandler(this.end2Point_TextChanged);
@@ -129,10 +125,6 @@ namespace PreprocessorLib
                 return null;
             }
         }
-
-
-        
-
 
         private void okButton_Click(object sender, EventArgs e)
         {
@@ -221,7 +213,6 @@ namespace PreprocessorLib
 
         private void errorMessage1_Click(object sender, EventArgs e)
         {
-
         }
     }
 }

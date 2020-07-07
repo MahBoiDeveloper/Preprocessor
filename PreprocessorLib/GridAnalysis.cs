@@ -28,24 +28,15 @@ namespace PreprocessorLib
         private double? maxSqr = null;
         public double MinAllowAngle
         {
-            get
-            {
-                return (double)nudMinAngle.Value;
-            }
+            get { return (double)nudMinAngle.Value; }
         }
         public double MaxAllowAngle
         {
-            get
-            {
-                return (double)nudMaxAngle.Value;
-            }
+            get { return (double)nudMaxAngle.Value; }
         }
         public double MinAllowSquare
         {
-            get
-            {
-                return (double)nudSquare.Value;
-            }
+            get { return (double)nudSquare.Value; }
         }
         public double MaxSquare
         {
@@ -131,28 +122,41 @@ namespace PreprocessorLib
             double minAngle = double.MaxValue, maxAngle = double.MinValue, minSquare = double.MaxValue, maxSquare = double.MinValue;;
             int minAngleElem = 0, maxAngleElem = 0, minSquareElem = 0, maxSquareElem = 0;
 
-            foreach (MyFiniteElement elem in currentModel.FiniteElements) {
+            foreach (MyFiniteElement elem in currentModel.FiniteElements)
+            {
                 double[] angles = Mathematics.getFEangles(elem);
                 double max = angles.Max();
                 double min = angles.Min();
-                if (max > MaxAllowAngle || min < MinAllowAngle) {
+                if (max > MaxAllowAngle || min < MinAllowAngle)
+                {
                     badAngles++;
                     if (max > MaxAllowAngle)
                         badMaxAngle++;
                     else 
                         badMinAngle++;
                 }
-                if (max > maxAngle) { maxAngle = max; maxAngleElem = elem.Id; }
-                if (min < minAngle) { minAngle = min; minAngleElem = elem.Id; }
+                if (max > maxAngle)
+                {
+                    maxAngle = max;
+                    maxAngleElem = elem.Id;
+                }
+                if (min < minAngle)
+                {
+                    minAngle = min;
+                    minAngleElem = elem.Id;
+                }
                 double sqr = Mathematics.GeronLaw(elem.Nodes);
-                if (sqr < MinAllowSquare) {
+                if (sqr < MinAllowSquare)
+                {
                     badSquare++;
-                    if (sqr < minSquare) {
+                    if (sqr < minSquare)
+                    {
                         minSquare = sqr;
                         minSquareElem = elem.Id;
                     }
                 }
-                if (sqr > maxSquare) {
+                if (sqr > maxSquare)
+                {
                     maxSquare = sqr;
                     maxSquareElem = elem.Id;
                 }

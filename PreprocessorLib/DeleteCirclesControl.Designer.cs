@@ -111,7 +111,6 @@
             this.Size = new System.Drawing.Size(227, 96);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

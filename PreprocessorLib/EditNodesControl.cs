@@ -12,7 +12,8 @@ namespace PreprocessorLib
 {
     public partial class EditNodesControl : UserControl
     {
- ProjectForm parent; 
+        ProjectForm parent;
+
         public EditNodesControl()
         {
             InitializeComponent();
@@ -92,13 +93,14 @@ namespace PreprocessorLib
                             this.y.TextChanged += new System.EventHandler(this.y_TextChanged);
 
                             this.number.Select();
-                                                    }
+                        }
                         break;
                     }
                 }
             }
             if (!nodeExists) this.errorNodeDoesNotExist.Visible = true;
         }
+
         private void okButton_Click(object sender, EventArgs e)
         {
             OK();
@@ -186,7 +188,5 @@ namespace PreprocessorLib
             }
             else if (e.KeyChar == (int)Keys.Escape) this.Dispose(); 
         }
-
-
     }
 }

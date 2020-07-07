@@ -58,7 +58,7 @@ namespace FrontalMethod
 
 
         Settings sts;                           //  Форма настроек
-        MyNode curDensityFunc = new MyNode();     //  Текущая точка задания функции плотности
+        MyNode curDensityFunc = new MyNode();   //  Текущая точка задания функции плотности
 
         int iTimeDelay = 20;                    //  Временная задержка для демонстрационного построения сетки КЭ
         int multiplier = 5;                     //  Множитель, необходимый для корректного отображения пластины

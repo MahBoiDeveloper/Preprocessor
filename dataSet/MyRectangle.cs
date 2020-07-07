@@ -36,12 +36,13 @@ namespace ModelComponents
             result.minX = area.Nodes.Min(n => n.X);
             result.maxY = area.Nodes.Max(n => n.Y);
             result.minY = area.Nodes.Min(n => n.Y);
-            result.Points = new MyPoint[4] { 
+            result.Points = new MyPoint[4]
+            { 
                  new MyPoint(result.minX, result.minY), 
                  new MyPoint(result.minX, result.maxY), 
                  new MyPoint(result.maxX, result.maxY), 
                  new MyPoint(result.maxX, result.minY) 
-             };
+            };
             return result;
         }
     }

@@ -1,11 +1,13 @@
 ﻿using System;
 using ELW.Library.Math.Calculators;
 
-namespace ELW.Library.Math {
+namespace ELW.Library.Math
+{
     /// <summary>
     /// Type of operation.
     /// </summary>
-    public enum OperationKind {
+    public enum OperationKind
+    {
         Operator = 1,
         Function = 2
     }
@@ -13,7 +15,8 @@ namespace ELW.Library.Math {
     /// <summary>
     /// Association direction of priority.
     /// </summary>
-    public enum PriorityAssociation {
+    public enum PriorityAssociation
+    {
         /// <summary>
         /// For example, normal binary subtraction or multiplication.
         /// </summary>
@@ -27,68 +30,64 @@ namespace ELW.Library.Math {
     /// <summary>
     /// Represents an operation with calculator associated.
     /// </summary>
-    public sealed class Operation {
+    public sealed class Operation
+    {
         private readonly string name;
         /// <summary>
         /// Operation name - unique string.
         /// </summary>
-        public string Name {
-            get {
-                return name;
-            }
+        public string Name
+        {
+            get { return name; }
         }
 
         private readonly OperationKind kind;
         /// <summary>
         /// Kind of operation.
         /// </summary>
-        public OperationKind Kind {
-            get {
-                return kind;
-            }
+        public OperationKind Kind
+        {
+            get { return kind; }
         }
 
         private readonly int priority;
         /// <summary>
         /// Integer priority of operation.
         /// </summary>
-        public int Priority {
-            get {
-                return priority;
-            }
+        public int Priority
+        {
+            get { return priority; }
         }
 
         private readonly string[] signature;
         /// <summary>
         /// Set of signature strings.
         /// </summary>
-        public string[] Signature {
-            get {
-                return signature;
-            }
+        public string[] Signature
+        {
+            get { return signature; }
         }
 
         private readonly int operandsCount;
         /// <summary>
         /// Count of operands.
         /// </summary>
-        public int OperandsCount {
-            get {
-                return operandsCount;
-            }
+        public int OperandsCount
+        {
+            get { return operandsCount; }
         }
 
         private readonly IOperationCalculator calculator;
         /// <summary>
         /// Calculator for this operation.
         /// </summary>
-        public IOperationCalculator Calculator {
-            get {
-                return calculator;
-            }
+        public IOperationCalculator Calculator
+        {
+            get { return calculator; }
         }
 
-        public Operation(string name, OperationKind kind, string[] signature, int operandsCount, IOperationCalculator calculator, int priority) {
+        public Operation(string name, OperationKind kind, string[] signature, int operandsCount, IOperationCalculator calculator, int priority)
+        {
             if (name == null)
                 throw new ArgumentNullException("name");
             if (name.Length == 0)
@@ -103,7 +102,6 @@ namespace ELW.Library.Math {
                 throw new ArgumentException("Invalid array length.", "signature");
             if ((kind == OperationKind.Function) && (signature.Length != 1))
                 throw new InvalidOperationException("Signature of function must contain one string item.");
-            //
             if (kind == OperationKind.Operator)
                 this.priority = priority;
             this.kind = kind;
@@ -114,12 +112,13 @@ namespace ELW.Library.Math {
         }
 
         public Operation(string name, OperationKind kind, string[] signature, int operandsCount, IOperationCalculator calculator)
-            : this(name, kind, signature, operandsCount, calculator, 0) {
-            //
+            : this(name, kind, signature, operandsCount, calculator, 0)
+        {
         }
 
-        public override string ToString() {
-            return String.Format("{0} {1}", kind, name);
+        public override string ToString()
+        {
+            return String.Format("{0}{1}", kind, name);
         }
     }
 }

@@ -111,30 +111,14 @@
             // nudMinDistance
             // 
             this.nudMinDistance.DecimalPlaces = 2;
-            this.nudMinDistance.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
+            this.nudMinDistance.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
             this.nudMinDistance.Location = new System.Drawing.Point(227, 29);
-            this.nudMinDistance.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.nudMinDistance.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
+            this.nudMinDistance.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            this.nudMinDistance.Minimum = new decimal(new int[] { 1, 0, 0, 131072 });
             this.nudMinDistance.Name = "nudMinDistance";
             this.nudMinDistance.Size = new System.Drawing.Size(96, 20);
             this.nudMinDistance.TabIndex = 31;
-            this.nudMinDistance.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.nudMinDistance.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // lblPlaceHolder
             // 
@@ -147,25 +131,13 @@
             // 
             // nudTriesCount
             // 
-            this.nudTriesCount.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
+            this.nudTriesCount.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
             this.nudTriesCount.Location = new System.Drawing.Point(227, 55);
-            this.nudTriesCount.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
+            this.nudTriesCount.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             this.nudTriesCount.Name = "nudTriesCount";
             this.nudTriesCount.Size = new System.Drawing.Size(96, 20);
             this.nudTriesCount.TabIndex = 28;
-            this.nudTriesCount.Value = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
+            this.nudTriesCount.Value = new decimal(new int[] { 1000, 0, 0, 0 });
             // 
             // label6
             // 
@@ -241,25 +213,13 @@
             // 
             // nudNodesCount
             // 
-            this.nudNodesCount.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
+            this.nudNodesCount.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
             this.nudNodesCount.Location = new System.Drawing.Point(227, 81);
-            this.nudNodesCount.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
+            this.nudNodesCount.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             this.nudNodesCount.Name = "nudNodesCount";
             this.nudNodesCount.Size = new System.Drawing.Size(96, 20);
             this.nudNodesCount.TabIndex = 33;
-            this.nudNodesCount.Value = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
+            this.nudNodesCount.Value = new decimal(new int[] { 20, 0, 0, 0 });
             // 
             // label5
             // 
@@ -295,7 +255,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudNodesCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
@@ -317,6 +276,5 @@
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.NumericUpDown nudNodesCount;
         private System.Windows.Forms.Label label5;
-
     }
 }

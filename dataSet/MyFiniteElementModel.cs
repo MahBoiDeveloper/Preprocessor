@@ -90,6 +90,7 @@ namespace ModelComponents
             this.NRC = 0; // вообще этот конструктор для создания варианта сетки после триангуляции - там параметр NRC теряет смысл..
             this.type = type;            
         }
+
         public MyFiniteElementModel(int id, string name, int NRC, GridType type)
         {
             this.Id = id;
@@ -127,7 +128,8 @@ namespace ModelComponents
     [Serializable]
     public class MyNode
     {
-        public static implicit operator MyPoint(MyNode node) {
+        public static implicit operator MyPoint(MyNode node)
+        {
             if (node == null) return null;
             return new MyPoint(node.x, node.y, MyPoint.PointType.IsGeometryPoint);
         }

@@ -64,10 +64,7 @@ namespace PreprocessorUtils
         Dictionary<int, Color> matColors = new Dictionary<int, Color>();
         public double pointLocality
         {
-            get
-            {
-                return (7.0) / this.pixelsPerUnit;
-            }
+            get { return (7.0) / this.pixelsPerUnit; }
         }
 
 
@@ -666,7 +663,11 @@ namespace PreprocessorUtils
                     float x = (float)area.Nodes[i].X, y = (float)area.Nodes[i].Y;
                     int Id = area.Nodes[i].Id;
                     pts[k++] = x; pts[k++] = y;
-                    if (i != 0) { pts[k++] = x; pts[k++] = y; }
+                    if (i != 0)
+                    {
+                        pts[k++] = x;
+                        pts[k++] = y;
+                    }
                     if (j != 8)
                     {
                         if (!passed.Contains(Id))

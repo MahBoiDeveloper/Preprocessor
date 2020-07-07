@@ -48,8 +48,6 @@ namespace PreprocessorLib
             sp = Convert.ToInt32(this.startPoint.Text);
             ep = Convert.ToInt32(this.endPoint.Text);
 
-            
-
             MyPoint point1 = null;
             MyPoint point2 = null;
             foreach (MyPoint point in this.parent.currentFullModel.geometryModel.Points)

@@ -154,62 +154,34 @@
             // 
             this.nudMinAngle.DecimalPlaces = 2;
             this.nudMinAngle.Location = new System.Drawing.Point(180, 2);
-            this.nudMinAngle.Maximum = new decimal(new int[] {
-            180,
-            0,
-            0,
-            0});
+            this.nudMinAngle.Maximum = new decimal(new int[] { 180, 0, 0, 0 });
             this.nudMinAngle.Name = "nudMinAngle";
             this.nudMinAngle.Size = new System.Drawing.Size(75, 20);
             this.nudMinAngle.TabIndex = 16;
-            this.nudMinAngle.Value = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
+            this.nudMinAngle.Value = new decimal(new int[] { 20, 0, 0, 0 });
             this.nudMinAngle.ValueChanged += new System.EventHandler(this.nudMinAngle_ValueChanged);
             // 
             // nudMaxAngle
             // 
             this.nudMaxAngle.DecimalPlaces = 2;
             this.nudMaxAngle.Location = new System.Drawing.Point(180, 53);
-            this.nudMaxAngle.Maximum = new decimal(new int[] {
-            180,
-            0,
-            0,
-            0});
+            this.nudMaxAngle.Maximum = new decimal(new int[] { 180, 0, 0, 0 });
             this.nudMaxAngle.Name = "nudMaxAngle";
             this.nudMaxAngle.Size = new System.Drawing.Size(75, 20);
             this.nudMaxAngle.TabIndex = 17;
-            this.nudMaxAngle.Value = new decimal(new int[] {
-            120,
-            0,
-            0,
-            0});
+            this.nudMaxAngle.Value = new decimal(new int[] { 120, 0, 0, 0 });
             this.nudMaxAngle.ValueChanged += new System.EventHandler(this.nudMaxAngle_ValueChanged);
             // 
             // nudSquare
             // 
             this.nudSquare.DecimalPlaces = 2;
-            this.nudSquare.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
+            this.nudSquare.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
             this.nudSquare.Location = new System.Drawing.Point(202, 108);
-            this.nudSquare.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
+            this.nudSquare.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             this.nudSquare.Name = "nudSquare";
             this.nudSquare.Size = new System.Drawing.Size(53, 20);
             this.nudSquare.TabIndex = 18;
-            this.nudSquare.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            this.nudSquare.Value = new decimal(new int[] { 5, 0, 0, 0 });
             this.nudSquare.ValueChanged += new System.EventHandler(this.nudSquare_ValueChanged);
             // 
             // GridAnalysis
@@ -240,7 +212,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudSquare)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

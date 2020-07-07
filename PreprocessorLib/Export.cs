@@ -19,8 +19,6 @@ namespace PreprocessorLib
 {
     public partial class ProjectForm : Form
     {
-
-
         public List<MyMaterial> Materials1;
 
         public void CreateSFMFile(string FileName)
@@ -128,12 +126,10 @@ namespace PreprocessorLib
             int per4 = 0;
             int per5 = 0;
 
-
             if (this.currentFullModel.FiniteElementModels.Count == 0)
             {
 
                 double x = 0;
-
 
                 writer1.Write(x);
                 writer1.Write(x);
@@ -142,7 +138,6 @@ namespace PreprocessorLib
 
                 Int32 numOfAreas = this.currentFullModel.geometryModel.Areas.Count;
                 writer1.Write(numOfAreas); // число зон - 4 байта
-
 
                 List<MyPoint> points = new List<MyPoint>(); // узлы зоны назовем points
                 foreach (MyArea area in this.currentFullModel.geometryModel.Areas)
@@ -165,8 +160,6 @@ namespace PreprocessorLib
                     writer1.Write(point.Y);         // Y
                 }
 
-
-
                 foreach (MyArea area in this.currentFullModel.geometryModel.Areas)
                 {
                     foreach (MyPoint point in area.Nodes)
@@ -183,16 +176,7 @@ namespace PreprocessorLib
                     writer1.Write(prm);
                 }
 
-
                 writer1.Write(x);
-
-
-                writer1.Write(x);
-                writer1.Write(x);
-                writer1.Write(x);
-                writer1.Write(x);
-                writer1.Write(x);
-
 
                 writer1.Write(x);
                 writer1.Write(x);
@@ -200,91 +184,86 @@ namespace PreprocessorLib
                 writer1.Write(x);
                 writer1.Write(x);
 
+                writer1.Write(x);
+                writer1.Write(x);
+                writer1.Write(x);
+                writer1.Write(x);
+                writer1.Write(x);
             }
             //тут сортировка для 1го материала*****************************************************************************
             if (this.currentFullModel.FiniteElementModels.Count > 0)
                 if (this.currentFullModel.FiniteElementModels[index].Materials.Count == 1 && this.currentFullModel.FiniteElementModels[index].Materials[0].Id == 2)
                 {
+                    double ort8 = this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus;
+                    double ort9 = this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio;
+                    double ort10 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension;
+                    double ort11 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension2;
+                    double ort14 = this.currentFullModel.FiniteElementModels[index].Materials[0].Thickness;
+                    this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus = 0;
+                    this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio = 0;
+                    this.currentFullModel.FiniteElementModels[index].Materials[0].Tension = 0;
+                    this.currentFullModel.FiniteElementModels[index].Materials[0].Tension2 = 0;
+                    this.currentFullModel.FiniteElementModels[index].Materials[0].Thickness = 0;
 
-                        double ort8 = this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus;
-                        double ort9 = this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio;
-                        double ort10 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension;
-                        double ort11 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension2;
-                        double ort14 = this.currentFullModel.FiniteElementModels[index].Materials[0].Thickness;
-                        this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus = 0;
-                        this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio = 0;
-                        this.currentFullModel.FiniteElementModels[index].Materials[0].Tension = 0;
-                        this.currentFullModel.FiniteElementModels[index].Materials[0].Tension2 = 0;
-                        this.currentFullModel.FiniteElementModels[index].Materials[0].Thickness = 0;
-
-
-
-
-
-                                E = this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus; // берем первое свойство. вообще, формат файла устарел, потому что может быть три различных материала, а они собраны вместе только в конце..
-                                p = this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio;
-                                T = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension;
+                    E = this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus; // берем первое свойство. вообще, формат файла устарел, потому что может быть три различных материала, а они собраны вместе только в конце..
+                    p = this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio;
+                    T = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension;
 
                     L = 0;
 
-                        writer1.Write(E);
-                        writer1.Write(p);
-                        writer1.Write(T);
-                        writer1.Write(L);
+                    writer1.Write(E);
+                    writer1.Write(p);
+                    writer1.Write(T);
+                    writer1.Write(L);
 
-                        Int32 numOfAreas = this.currentFullModel.geometryModel.Areas.Count;
-                        writer1.Write(numOfAreas); // число зон - 4 байта
+                    Int32 numOfAreas = this.currentFullModel.geometryModel.Areas.Count;
+                    writer1.Write(numOfAreas); // число зон - 4 байта
 
-
-                        List<MyPoint> points = new List<MyPoint>(); // узлы зоны назовем points
-                        foreach (MyArea area in this.currentFullModel.geometryModel.Areas)
+                    List<MyPoint> points = new List<MyPoint>(); // узлы зоны назовем points
+                    foreach (MyArea area in this.currentFullModel.geometryModel.Areas)
+                    {
+                        for (i = 0; i < 8; i++)
                         {
-                            for (i = 0; i < 8; i++)
-                            {
-                                if (points.IndexOf(area.Nodes[i]) == -1) points.Add(area.Nodes[i]);
-                            }
+                            if (points.IndexOf(area.Nodes[i]) == -1) points.Add(area.Nodes[i]);
                         }
+                    }
 
-                        Int32 numOfPoints = points.Count;
-                        writer1.Write(numOfPoints); // число узлов зон - 4 байта
+                    Int32 numOfPoints = points.Count;
+                    writer1.Write(numOfPoints); // число узлов зон - 4 байта
 
-                        foreach (MyPoint point in points)
+                    foreach (MyPoint point in points)
+                    {
+                        writer1.Write((Int16)point.Id); // номер узла зоны
+                        byte[] magic6 = new byte[6];
+                        writer1.Write(magic6); // 6 магичесеких байт
+                        writer1.Write(point.X);         // X
+                        writer1.Write(point.Y);         // Y
+                    }
+
+                    foreach (MyArea area in this.currentFullModel.geometryModel.Areas)
+                    {
+                        foreach (MyPoint point in area.Nodes)
                         {
                             writer1.Write((Int16)point.Id); // номер узла зоны
-                            byte[] magic6 = new byte[6];
-                            writer1.Write(magic6); // 6 магичесеких байт
-                            writer1.Write(point.X);         // X
-                            writer1.Write(point.Y);         // Y
                         }
+                    }
+                    // пишем параметры PRM1, PRM2 и PRM3.. в последней сигме их 6, но читает из sfm она только 3((
+                    for (int k = 0; k < 3; k++)
+                    {
+                        double prm = 0.0;
+                        writer1.Write(prm);
+                    }
 
+                    //  double ort4 = 0.0;
+                    ort4 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension2;
+                    writer1.Write(ort4);
 
+                    writer1.Write(ort8);
+                    writer1.Write(ort9);
+                    writer1.Write(ort10);
+                    writer1.Write(ort11);
+                    writer1.Write(ort14);
 
-                        foreach (MyArea area in this.currentFullModel.geometryModel.Areas)
-                        {
-                            foreach (MyPoint point in area.Nodes)
-                            {
-                                writer1.Write((Int16)point.Id); // номер узла зоны
-                            }
-                        }
-
-                        // пишем параметры PRM1, PRM2 и PRM3.. в последней сигме их 6, но читает из sfm она только 3((
-
-                        for (int k = 0; k < 3; k++)
-                        {
-                            double prm = 0.0;
-                            writer1.Write(prm);
-                        }
-
-                        //  double ort4 = 0.0;
-                        ort4 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension2;
-                        writer1.Write(ort4);
-
-
-                        writer1.Write(ort8);
-                        writer1.Write(ort9);
-                        writer1.Write(ort10);
-                        writer1.Write(ort11);
-                        writer1.Write(ort14);
                     this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus = ort8;
                     this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio = ort9;
                     this.currentFullModel.FiniteElementModels[index].Materials[0].Tension = ort10;
@@ -322,7 +301,6 @@ namespace PreprocessorLib
                     Int32 numOfAreas = this.currentFullModel.geometryModel.Areas.Count;
                     writer1.Write(numOfAreas); // число зон - 4 байта
 
-
                     List<MyPoint> points = new List<MyPoint>(); // узлы зоны назовем points
                     foreach (MyArea area in this.currentFullModel.geometryModel.Areas)
                     {
@@ -343,8 +321,6 @@ namespace PreprocessorLib
                         writer1.Write(point.X);         // X
                         writer1.Write(point.Y);         // Y
                     }
-
-
 
                     foreach (MyArea area in this.currentFullModel.geometryModel.Areas)
                     {
@@ -377,7 +353,6 @@ namespace PreprocessorLib
                     writer1.Write(ort11);
                     writer1.Write(ort14);
 
-
                     double ort15 = 0.0;
                     double ort16 = 0.0;
                     double ort17 = 0.0;
@@ -388,13 +363,11 @@ namespace PreprocessorLib
                     writer1.Write(ort17);
                     writer1.Write(ort18);
                     writer1.Write(ort21);
-
                 }
 
             if (this.currentFullModel.FiniteElementModels.Count > 0)
                 if (this.currentFullModel.FiniteElementModels[index].Materials.Count == 1 && this.currentFullModel.FiniteElementModels[index].Materials[0].Id == 3)
                 {
-
                     double ort15 = this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus;
                     double ort16 = this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio;
                     double ort17 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension;
@@ -405,10 +378,6 @@ namespace PreprocessorLib
                     this.currentFullModel.FiniteElementModels[index].Materials[0].Tension = 0;
                     this.currentFullModel.FiniteElementModels[index].Materials[0].Tension2 = 0;
                     this.currentFullModel.FiniteElementModels[index].Materials[0].Thickness = 0;
-
-
-
-
 
                     E = this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus; // берем первое свойство. вообще, формат файла устарел, потому что может быть три различных материала, а они собраны вместе только в конце..
                     p = this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio;
@@ -423,7 +392,6 @@ namespace PreprocessorLib
 
                     Int32 numOfAreas = this.currentFullModel.geometryModel.Areas.Count;
                     writer1.Write(numOfAreas); // число зон - 4 байта
-
 
                     List<MyPoint> points = new List<MyPoint>(); // узлы зоны назовем points
                     foreach (MyArea area in this.currentFullModel.geometryModel.Areas)
@@ -445,8 +413,6 @@ namespace PreprocessorLib
                         writer1.Write(point.X);         // X
                         writer1.Write(point.Y);         // Y
                     }
-
-
 
                     foreach (MyArea area in this.currentFullModel.geometryModel.Areas)
                     {
@@ -491,13 +457,11 @@ namespace PreprocessorLib
                     writer1.Write(ort21);
 
                 }
-            //*************************************************************************************************************
 
-            //тут сортировка для 2х материалов*****************************************************************************
+            // сортировка для 2х материалов
             if (this.currentFullModel.FiniteElementModels.Count > 0)
                 if (this.currentFullModel.FiniteElementModels[index].Materials.Count == 2 && this.currentFullModel.FiniteElementModels[index].Materials[0].Id == 1 && this.currentFullModel.FiniteElementModels[index].Materials[1].Id == 2)
                 {
-
                     E = this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus; // берем первое свойство. вообще, формат файла устарел, потому что может быть три различных материала, а они собраны вместе только в конце..
                     p = this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio;
                     T = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension;
@@ -511,7 +475,6 @@ namespace PreprocessorLib
 
                     Int32 numOfAreas = this.currentFullModel.geometryModel.Areas.Count;
                     writer1.Write(numOfAreas); // число зон - 4 байта
-
 
                     List<MyPoint> points = new List<MyPoint>(); // узлы зоны назовем points
                     foreach (MyArea area in this.currentFullModel.geometryModel.Areas)
@@ -533,8 +496,6 @@ namespace PreprocessorLib
                         writer1.Write(point.X);         // X
                         writer1.Write(point.Y);         // Y
                     }
-
-
 
                     foreach (MyArea area in this.currentFullModel.geometryModel.Areas)
                     {
@@ -561,35 +522,35 @@ namespace PreprocessorLib
                     double ort10 = 0.0;
                     double ort11 = 0.0;
                     double ort14 = 0.0;
+
                     ort8 =  this.currentFullModel.FiniteElementModels[index].Materials[1].ElasticModulus;
                     ort9 = this.currentFullModel.FiniteElementModels[index].Materials[1].PoissonsRatio;
                     ort10 = this.currentFullModel.FiniteElementModels[index].Materials[1].Tension;
                     ort11 = this.currentFullModel.FiniteElementModels[index].Materials[1].Tension2;
                     ort14 = this.currentFullModel.FiniteElementModels[index].Materials[1].Thickness;
+
                     writer1.Write(ort8);
                     writer1.Write(ort9);
                     writer1.Write(ort10);
                     writer1.Write(ort11);
                     writer1.Write(ort14);
 
-
                     double ort15 = 0.0;
                     double ort16 = 0.0;
                     double ort17 = 0.0;
                     double ort18 = 0.0;
                     double ort21 = 0.0;
+
                     writer1.Write(ort15);
                     writer1.Write(ort16);
                     writer1.Write(ort17);
                     writer1.Write(ort18);
                     writer1.Write(ort21);
-
                 }
 
             if (this.currentFullModel.FiniteElementModels.Count > 0)
                 if (this.currentFullModel.FiniteElementModels[index].Materials.Count == 2 && this.currentFullModel.FiniteElementModels[index].Materials[0].Id == 1 && this.currentFullModel.FiniteElementModels[index].Materials[1].Id == 3)
                 {
-
                     E = this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus; // берем первое свойство. вообще, формат файла устарел, потому что может быть три различных материала, а они собраны вместе только в конце..
                     p = this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio;
                     T = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension;
@@ -603,7 +564,6 @@ namespace PreprocessorLib
 
                     Int32 numOfAreas = this.currentFullModel.geometryModel.Areas.Count;
                     writer1.Write(numOfAreas); // число зон - 4 байта
-
 
                     List<MyPoint> points = new List<MyPoint>(); // узлы зоны назовем points
                     foreach (MyArea area in this.currentFullModel.geometryModel.Areas)
@@ -625,8 +585,6 @@ namespace PreprocessorLib
                         writer1.Write(point.X);         // X
                         writer1.Write(point.Y);         // Y
                     }
-
-
 
                     foreach (MyArea area in this.currentFullModel.geometryModel.Areas)
                     {
@@ -653,6 +611,7 @@ namespace PreprocessorLib
                     double ort10 = 0.0;
                     double ort11 = 0.0;
                     double ort14 = 0.0;
+
                     double x1 = this.currentFullModel.FiniteElementModels[index].Materials[1].ElasticModulus;
                     double x2 = this.currentFullModel.FiniteElementModels[index].Materials[1].PoissonsRatio;
                     double x3 = this.currentFullModel.FiniteElementModels[index].Materials[1].Tension;
@@ -665,30 +624,29 @@ namespace PreprocessorLib
                     writer1.Write(ort11);
                     writer1.Write(ort14);
 
-
                     double ort15 = 0.0;
                     double ort16 = 0.0;
                     double ort17 = 0.0;
                     double ort18 = 0.0;
                     double ort21 = 0.0;
+
                     ort15 = x1;
                     ort16 = x2;
                     ort17 = x3;
                     ort18 = x4;
                     ort21 = x5;
+
                     writer1.Write(ort15);
                     writer1.Write(ort16);
                     writer1.Write(ort17);
                     writer1.Write(ort18);
                     writer1.Write(ort21);
-
                 }
 
 
             if (this.currentFullModel.FiniteElementModels.Count > 0)
                 if (this.currentFullModel.FiniteElementModels[index].Materials.Count == 2 && this.currentFullModel.FiniteElementModels[index].Materials[0].Id == 2 && this.currentFullModel.FiniteElementModels[index].Materials[1].Id == 1)
                 {
-
                     double x1 = this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus;
                     double x2 = this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio;
                     double x3 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension;
@@ -707,7 +665,6 @@ namespace PreprocessorLib
 
                     Int32 numOfAreas = this.currentFullModel.geometryModel.Areas.Count;
                     writer1.Write(numOfAreas); // число зон - 4 байта
-
 
                     List<MyPoint> points = new List<MyPoint>(); // узлы зоны назовем points
                     foreach (MyArea area in this.currentFullModel.geometryModel.Areas)
@@ -752,25 +709,19 @@ namespace PreprocessorLib
                    // ort4 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension2;
                     writer1.Write(x9);
 
-
-
-
                     writer1.Write(x1);
                     writer1.Write(x2);
                     writer1.Write(x3);
                     writer1.Write(x4);
                     writer1.Write(x5);
 
-
                     double ort15 = 0.0;
 
-
                     writer1.Write(ort15);
                     writer1.Write(ort15);
                     writer1.Write(ort15);
                     writer1.Write(ort15);
                     writer1.Write(ort15);
-
                 }
 
             if (this.currentFullModel.FiniteElementModels.Count > 0)
@@ -798,7 +749,6 @@ namespace PreprocessorLib
                     Int32 numOfAreas = this.currentFullModel.geometryModel.Areas.Count;
                     writer1.Write(numOfAreas); // число зон - 4 байта
 
-
                     List<MyPoint> points = new List<MyPoint>(); // узлы зоны назовем points
                     foreach (MyArea area in this.currentFullModel.geometryModel.Areas)
                     {
@@ -819,8 +769,6 @@ namespace PreprocessorLib
                         writer1.Write(point.X);         // X
                         writer1.Write(point.Y);         // Y
                     }
-
-
 
                     foreach (MyArea area in this.currentFullModel.geometryModel.Areas)
                     {
@@ -842,9 +790,6 @@ namespace PreprocessorLib
                     // ort4 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension2;
                     writer1.Write(ort15);
 
-
-
-
                     writer1.Write(x1);
                     writer1.Write(x2);
                     writer1.Write(x3);
@@ -856,13 +801,11 @@ namespace PreprocessorLib
                     writer1.Write(x8);
                     writer1.Write(x9);
                     writer1.Write(x10);
-
                 }
 
             if (this.currentFullModel.FiniteElementModels.Count > 0)
                 if (this.currentFullModel.FiniteElementModels[index].Materials.Count == 2 && this.currentFullModel.FiniteElementModels[index].Materials[0].Id == 3 && this.currentFullModel.FiniteElementModels[index].Materials[1].Id == 1)
                 {
-
                     double x1 = this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus;
                     double x2 = this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio;
                     double x3 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension;
@@ -883,7 +826,6 @@ namespace PreprocessorLib
 
                     Int32 numOfAreas = this.currentFullModel.geometryModel.Areas.Count;
                     writer1.Write(numOfAreas); // число зон - 4 байта
-
 
                     List<MyPoint> points = new List<MyPoint>(); // узлы зоны назовем points
                     foreach (MyArea area in this.currentFullModel.geometryModel.Areas)
@@ -906,8 +848,6 @@ namespace PreprocessorLib
                         writer1.Write(point.Y);         // Y
                     }
 
-
-
                     foreach (MyArea area in this.currentFullModel.geometryModel.Areas)
                     {
                         foreach (MyPoint point in area.Nodes)
@@ -924,31 +864,25 @@ namespace PreprocessorLib
                         writer1.Write(prm);
                     }
 
-
                     writer1.Write(x9);
 
-
                     writer1.Write(ort15);
                     writer1.Write(ort15);
                     writer1.Write(ort15);
                     writer1.Write(ort15);
                     writer1.Write(ort15);
-
 
                     writer1.Write(x1);
                     writer1.Write(x2);
                     writer1.Write(x3);
                     writer1.Write(x4);
                     writer1.Write(x5);
-
-
                 }
 
 
             if (this.currentFullModel.FiniteElementModels.Count > 0)
                 if (this.currentFullModel.FiniteElementModels[index].Materials.Count == 2 && this.currentFullModel.FiniteElementModels[index].Materials[0].Id == 3 && this.currentFullModel.FiniteElementModels[index].Materials[1].Id == 2)
                 {
-
                     double x1 = this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus;
                     double x2 = this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio;
                     double x3 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension;
@@ -969,7 +903,6 @@ namespace PreprocessorLib
 
                     Int32 numOfAreas = this.currentFullModel.geometryModel.Areas.Count;
                     writer1.Write(numOfAreas); // число зон - 4 байта
-
 
                     List<MyPoint> points = new List<MyPoint>(); // узлы зоны назовем points
                     foreach (MyArea area in this.currentFullModel.geometryModel.Areas)
@@ -992,8 +925,6 @@ namespace PreprocessorLib
                         writer1.Write(point.Y);         // Y
                     }
 
-
-
                     foreach (MyArea area in this.currentFullModel.geometryModel.Areas)
                     {
                         foreach (MyPoint point in area.Nodes)
@@ -1010,10 +941,7 @@ namespace PreprocessorLib
                         writer1.Write(prm);
                     }
 
-
                     writer1.Write(ort15);
-
-
 
                     writer1.Write(x6);
                     writer1.Write(x7);
@@ -1026,18 +954,16 @@ namespace PreprocessorLib
                     writer1.Write(x3);
                     writer1.Write(x4);
                     writer1.Write(x5);
-
-
                 }
-            //*************************************************************************************************************
 
-            //тут сортировка для 3х материалов*****************************************************************************
+            // сортировка для 3х материалов
             if (this.currentFullModel.FiniteElementModels.Count > 0)
                 if (this.currentFullModel.FiniteElementModels[index].Materials.Count == 3)
                 {
                     if (this.currentFullModel.FiniteElementModels[index].Materials[1].Id == 1 && this.currentFullModel.FiniteElementModels[index].Materials[0].Id == 2 && this.currentFullModel.FiniteElementModels[index].Materials[2].Id == 3)
                     {
                         per1 = 1;
+
                         double x1 = this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus;
                         double x2 = this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio;
                         double x3 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension;
@@ -1048,6 +974,7 @@ namespace PreprocessorLib
                         double x8 = this.currentFullModel.FiniteElementModels[index].Materials[1].Tension;
                         double x9 = this.currentFullModel.FiniteElementModels[index].Materials[1].Tension2;
                         double x10 = this.currentFullModel.FiniteElementModels[index].Materials[1].Thickness;
+
                         this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus = x6;
                         this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio = x7;
                         this.currentFullModel.FiniteElementModels[index].Materials[0].Tension = x8;
@@ -1062,6 +989,7 @@ namespace PreprocessorLib
                     if (this.currentFullModel.FiniteElementModels[index].Materials[2].Id == 1 && this.currentFullModel.FiniteElementModels[index].Materials[0].Id == 3 && this.currentFullModel.FiniteElementModels[index].Materials[1].Id == 2)
                     {
                         per2 = 1;
+
                         double x1 = this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus;
                         double x2 = this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio;
                         double x3 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension;
@@ -1072,6 +1000,7 @@ namespace PreprocessorLib
                         double x8 = this.currentFullModel.FiniteElementModels[index].Materials[2].Tension;
                         double x9 = this.currentFullModel.FiniteElementModels[index].Materials[2].Tension2;
                         double x10 = this.currentFullModel.FiniteElementModels[index].Materials[2].Thickness;
+
                         this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus = x6;
                         this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio = x7;
                         this.currentFullModel.FiniteElementModels[index].Materials[0].Tension = x8;
@@ -1086,6 +1015,7 @@ namespace PreprocessorLib
                     if (this.currentFullModel.FiniteElementModels[index].Materials[2].Id == 2 && this.currentFullModel.FiniteElementModels[index].Materials[1].Id == 3 && this.currentFullModel.FiniteElementModels[index].Materials[0].Id == 1)
                     {
                         per3 = 1;
+
                         double x1 = this.currentFullModel.FiniteElementModels[index].Materials[2].ElasticModulus;
                         double x2 = this.currentFullModel.FiniteElementModels[index].Materials[2].PoissonsRatio;
                         double x3 = this.currentFullModel.FiniteElementModels[index].Materials[2].Tension;
@@ -1096,6 +1026,7 @@ namespace PreprocessorLib
                         double x8 = this.currentFullModel.FiniteElementModels[index].Materials[1].Tension;
                         double x9 = this.currentFullModel.FiniteElementModels[index].Materials[1].Tension2;
                         double x10 = this.currentFullModel.FiniteElementModels[index].Materials[1].Thickness;
+
                         this.currentFullModel.FiniteElementModels[index].Materials[2].ElasticModulus = x6;
                         this.currentFullModel.FiniteElementModels[index].Materials[2].PoissonsRatio = x7;
                         this.currentFullModel.FiniteElementModels[index].Materials[2].Tension = x8;
@@ -1110,6 +1041,7 @@ namespace PreprocessorLib
                     if (this.currentFullModel.FiniteElementModels[index].Materials[0].Id == 3 && this.currentFullModel.FiniteElementModels[index].Materials[1].Id == 1 && this.currentFullModel.FiniteElementModels[index].Materials[2].Id == 2)
                     {
                         per4 = 1;
+
                         double x1 = this.currentFullModel.FiniteElementModels[index].Materials[2].ElasticModulus;
                         double x2 = this.currentFullModel.FiniteElementModels[index].Materials[2].PoissonsRatio;
                         double x3 = this.currentFullModel.FiniteElementModels[index].Materials[2].Tension;
@@ -1141,11 +1073,11 @@ namespace PreprocessorLib
                         this.currentFullModel.FiniteElementModels[index].Materials[0].Tension = x8;
                         this.currentFullModel.FiniteElementModels[index].Materials[0].Tension2 = x9;
                         this.currentFullModel.FiniteElementModels[index].Materials[0].Thickness = x10;
-
                     }
                     if (this.currentFullModel.FiniteElementModels[index].Materials[0].Id == 2 && this.currentFullModel.FiniteElementModels[index].Materials[1].Id == 3 && this.currentFullModel.FiniteElementModels[index].Materials[2].Id == 1)
                     {
                         per5 = 1;
+
                         double x1 = this.currentFullModel.FiniteElementModels[index].Materials[2].ElasticModulus;
                         double x2 = this.currentFullModel.FiniteElementModels[index].Materials[2].PoissonsRatio;
                         double x3 = this.currentFullModel.FiniteElementModels[index].Materials[2].Tension;
@@ -1177,8 +1109,8 @@ namespace PreprocessorLib
                         this.currentFullModel.FiniteElementModels[index].Materials[0].Tension = x3;
                         this.currentFullModel.FiniteElementModels[index].Materials[0].Tension2 = x4;
                         this.currentFullModel.FiniteElementModels[index].Materials[0].Thickness = x2;
-
-                    }   }
+                    }
+                }
             if (this.currentFullModel.FiniteElementModels[index].Materials.Count == 3)
             {
                 if (this.currentFullModel.FiniteElementModels.Count > 0)
@@ -1188,10 +1120,9 @@ namespace PreprocessorLib
                         E = this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus; // берем первое свойство. вообще, формат файла устарел, потому что может быть три различных материала, а они собраны вместе только в конце..
                         p = this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio;
                         T = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension;
-
-
                     }
                 }
+
                 writer1.Write(E);
                 writer1.Write(p);
                 writer1.Write(T);
@@ -1200,7 +1131,6 @@ namespace PreprocessorLib
 
                 Int32 numOfAreas = this.currentFullModel.geometryModel.Areas.Count;
                 writer1.Write(numOfAreas); // число зон - 4 байта
-
 
                 List<MyPoint> points = new List<MyPoint>(); // узлы зоны назовем points
                 foreach (MyArea area in this.currentFullModel.geometryModel.Areas)
@@ -1222,8 +1152,6 @@ namespace PreprocessorLib
                     writer1.Write(point.X);         // X
                     writer1.Write(point.Y);         // Y
                 }
-
-
 
                 foreach (MyArea area in this.currentFullModel.geometryModel.Areas)
                 {
@@ -1250,6 +1178,7 @@ namespace PreprocessorLib
                 double ort10 = 0.0;
                 double ort11 = 0.0;
                 double ort14 = 0.0;
+
                 if (this.currentFullModel.FiniteElementModels.Count > 0)
                     if (this.currentFullModel.FiniteElementModels[index].Materials.Count >= 2)
                     {
@@ -1260,19 +1189,19 @@ namespace PreprocessorLib
                         ort14 = this.currentFullModel.FiniteElementModels[index].Materials[1].Thickness;
 
                     }
+
                 writer1.Write(ort8);
                 writer1.Write(ort9);
                 writer1.Write(ort10);
                 writer1.Write(ort11);
                 writer1.Write(ort14);
 
-
-
                 double ort15 = 0.0;
                 double ort16 = 0.0;
                 double ort17 = 0.0;
                 double ort18 = 0.0;
                 double ort21 = 0.0;
+
                 if (this.currentFullModel.FiniteElementModels.Count > 0)
                     if (this.currentFullModel.FiniteElementModels[index].Materials.Count == 3)
                     {
@@ -1288,155 +1217,160 @@ namespace PreprocessorLib
                 writer1.Write(ort18);
                 writer1.Write(ort21);
             }
-                    if (this.currentFullModel.FiniteElementModels.Count > 0)
-                        if (this.currentFullModel.FiniteElementModels[index].Materials.Count == 3)
-                        {
-                            if (this.currentFullModel.FiniteElementModels[index].Materials[1].Id == 1 && this.currentFullModel.FiniteElementModels[index].Materials[0].Id == 2 && this.currentFullModel.FiniteElementModels[index].Materials[2].Id == 3)
-                            {
-                                per1 = 1;
-                                double x1 = this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus;
-                                double x2 = this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio;
-                                double x3 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension;
-                                double x4 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension2;
-                                double x5 = this.currentFullModel.FiniteElementModels[index].Materials[0].Thickness;
-                                double x6 = this.currentFullModel.FiniteElementModels[index].Materials[1].ElasticModulus;
-                                double x7 = this.currentFullModel.FiniteElementModels[index].Materials[1].PoissonsRatio;
-                                double x8 = this.currentFullModel.FiniteElementModels[index].Materials[1].Tension;
-                                double x9 = this.currentFullModel.FiniteElementModels[index].Materials[1].Tension2;
-                                double x10 = this.currentFullModel.FiniteElementModels[index].Materials[1].Thickness;
-                                this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus = x6;
-                                this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio = x7;
-                                this.currentFullModel.FiniteElementModels[index].Materials[0].Tension = x8;
-                                this.currentFullModel.FiniteElementModels[index].Materials[0].Tension2 = x9;
-                                this.currentFullModel.FiniteElementModels[index].Materials[0].Thickness = x10;
-                                this.currentFullModel.FiniteElementModels[index].Materials[1].ElasticModulus = x1;
-                                this.currentFullModel.FiniteElementModels[index].Materials[1].PoissonsRatio = x2;
-                                this.currentFullModel.FiniteElementModels[index].Materials[1].Tension = x3;
-                                this.currentFullModel.FiniteElementModels[index].Materials[1].Tension2 = x4;
-                                this.currentFullModel.FiniteElementModels[index].Materials[1].Thickness = x5;
-                            }
-                            if (this.currentFullModel.FiniteElementModels[index].Materials[2].Id == 1 && this.currentFullModel.FiniteElementModels[index].Materials[0].Id == 3 && this.currentFullModel.FiniteElementModels[index].Materials[1].Id == 2)
-                            {
-                                per2 = 1;
-                                double x1 = this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus;
-                                double x2 = this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio;
-                                double x3 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension;
-                                double x4 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension2;
-                                double x5 = this.currentFullModel.FiniteElementModels[index].Materials[0].Thickness;
-                                double x6 = this.currentFullModel.FiniteElementModels[index].Materials[2].ElasticModulus;
-                                double x7 = this.currentFullModel.FiniteElementModels[index].Materials[2].PoissonsRatio;
-                                double x8 = this.currentFullModel.FiniteElementModels[index].Materials[2].Tension;
-                                double x9 = this.currentFullModel.FiniteElementModels[index].Materials[2].Tension2;
-                                double x10 = this.currentFullModel.FiniteElementModels[index].Materials[2].Thickness;
-                                this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus = x6;
-                                this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio = x7;
-                                this.currentFullModel.FiniteElementModels[index].Materials[0].Tension = x8;
-                                this.currentFullModel.FiniteElementModels[index].Materials[0].Tension2 = x9;
-                                this.currentFullModel.FiniteElementModels[index].Materials[0].Thickness = x10;
-                                this.currentFullModel.FiniteElementModels[index].Materials[2].ElasticModulus = x1;
-                                this.currentFullModel.FiniteElementModels[index].Materials[2].PoissonsRatio = x2;
-                                this.currentFullModel.FiniteElementModels[index].Materials[2].Tension = x3;
-                                this.currentFullModel.FiniteElementModels[index].Materials[2].Tension2 = x4;
-                                this.currentFullModel.FiniteElementModels[index].Materials[2].Thickness = x5;
-                            }
-                            if (this.currentFullModel.FiniteElementModels[index].Materials[2].Id == 2 && this.currentFullModel.FiniteElementModels[index].Materials[1].Id == 3 && this.currentFullModel.FiniteElementModels[index].Materials[0].Id == 1)
-                            {
-                                per3 = 1;
-                                double x1 = this.currentFullModel.FiniteElementModels[index].Materials[2].ElasticModulus;
-                                double x2 = this.currentFullModel.FiniteElementModels[index].Materials[2].PoissonsRatio;
-                                double x3 = this.currentFullModel.FiniteElementModels[index].Materials[2].Tension;
-                                double x4 = this.currentFullModel.FiniteElementModels[index].Materials[2].Tension2;
-                                double x5 = this.currentFullModel.FiniteElementModels[index].Materials[2].Thickness;
-                                double x6 = this.currentFullModel.FiniteElementModels[index].Materials[1].ElasticModulus;
-                                double x7 = this.currentFullModel.FiniteElementModels[index].Materials[1].PoissonsRatio;
-                                double x8 = this.currentFullModel.FiniteElementModels[index].Materials[1].Tension;
-                                double x9 = this.currentFullModel.FiniteElementModels[index].Materials[1].Tension2;
-                                double x10 = this.currentFullModel.FiniteElementModels[index].Materials[1].Thickness;
-                                this.currentFullModel.FiniteElementModels[index].Materials[2].ElasticModulus = x6;
-                                this.currentFullModel.FiniteElementModels[index].Materials[2].PoissonsRatio = x7;
-                                this.currentFullModel.FiniteElementModels[index].Materials[2].Tension = x8;
-                                this.currentFullModel.FiniteElementModels[index].Materials[2].Tension2 = x9;
-                                this.currentFullModel.FiniteElementModels[index].Materials[2].Thickness = x10;
-                                this.currentFullModel.FiniteElementModels[index].Materials[1].ElasticModulus = x1;
-                                this.currentFullModel.FiniteElementModels[index].Materials[1].PoissonsRatio = x2;
-                                this.currentFullModel.FiniteElementModels[index].Materials[1].Tension = x3;
-                                this.currentFullModel.FiniteElementModels[index].Materials[1].Tension2 = x4;
-                                this.currentFullModel.FiniteElementModels[index].Materials[1].Thickness = x5;
-                            }
-                            if (this.currentFullModel.FiniteElementModels[index].Materials[0].Id == 3 && this.currentFullModel.FiniteElementModels[index].Materials[1].Id == 1 && this.currentFullModel.FiniteElementModels[index].Materials[2].Id == 2)
-                            {
-                                per4 = 1;
-                                double x1 = this.currentFullModel.FiniteElementModels[index].Materials[2].ElasticModulus;
-                                double x2 = this.currentFullModel.FiniteElementModels[index].Materials[2].PoissonsRatio;
-                                double x3 = this.currentFullModel.FiniteElementModels[index].Materials[2].Tension;
-                                double x4 = this.currentFullModel.FiniteElementModels[index].Materials[2].Tension2;
-                                double x5 = this.currentFullModel.FiniteElementModels[index].Materials[2].Thickness;
-                                double x6 = this.currentFullModel.FiniteElementModels[index].Materials[1].ElasticModulus;
-                                double x7 = this.currentFullModel.FiniteElementModels[index].Materials[1].PoissonsRatio;
-                                double x8 = this.currentFullModel.FiniteElementModels[index].Materials[1].Tension;
-                                double x9 = this.currentFullModel.FiniteElementModels[index].Materials[1].Tension2;
-                                double x10 = this.currentFullModel.FiniteElementModels[index].Materials[1].Thickness;
-                                double x11 = this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus;
-                                double x12 = this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio;
-                                double x13 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension;
-                                double x14 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension2;
-                                double x15 = this.currentFullModel.FiniteElementModels[index].Materials[0].Thickness;
+            if (this.currentFullModel.FiniteElementModels.Count > 0)
+                if (this.currentFullModel.FiniteElementModels[index].Materials.Count == 3)
+                {
+                    if (this.currentFullModel.FiniteElementModels[index].Materials[1].Id == 1 && this.currentFullModel.FiniteElementModels[index].Materials[0].Id == 2 && this.currentFullModel.FiniteElementModels[index].Materials[2].Id == 3)
+                    {
+                        per1 = 1;
 
-                                this.currentFullModel.FiniteElementModels[index].Materials[2].ElasticModulus = x6;
-                                this.currentFullModel.FiniteElementModels[index].Materials[2].PoissonsRatio = x7;
-                                this.currentFullModel.FiniteElementModels[index].Materials[2].Tension = x8;
-                                this.currentFullModel.FiniteElementModels[index].Materials[2].Tension2 = x9;
-                                this.currentFullModel.FiniteElementModels[index].Materials[2].Thickness = x10;
-                                this.currentFullModel.FiniteElementModels[index].Materials[1].ElasticModulus = x11;
-                                this.currentFullModel.FiniteElementModels[index].Materials[1].PoissonsRatio = x12;
-                                this.currentFullModel.FiniteElementModels[index].Materials[1].Tension = x13;
-                                this.currentFullModel.FiniteElementModels[index].Materials[1].Tension2 = x14;
-                                this.currentFullModel.FiniteElementModels[index].Materials[1].Thickness = x15;
-                                this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus = x1;
-                                this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio = x2;
-                                this.currentFullModel.FiniteElementModels[index].Materials[0].Tension = x3;
-                                this.currentFullModel.FiniteElementModels[index].Materials[0].Tension2 = x4;
-                                this.currentFullModel.FiniteElementModels[index].Materials[0].Thickness = x5;
+                        double x1 = this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus;
+                        double x2 = this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio;
+                        double x3 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension;
+                        double x4 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension2;
+                        double x5 = this.currentFullModel.FiniteElementModels[index].Materials[0].Thickness;
+                        double x6 = this.currentFullModel.FiniteElementModels[index].Materials[1].ElasticModulus;
+                        double x7 = this.currentFullModel.FiniteElementModels[index].Materials[1].PoissonsRatio;
+                        double x8 = this.currentFullModel.FiniteElementModels[index].Materials[1].Tension;
+                        double x9 = this.currentFullModel.FiniteElementModels[index].Materials[1].Tension2;
+                        double x10 = this.currentFullModel.FiniteElementModels[index].Materials[1].Thickness;
 
-                            }
-                            if (this.currentFullModel.FiniteElementModels[index].Materials[0].Id == 2 && this.currentFullModel.FiniteElementModels[index].Materials[1].Id == 3 && this.currentFullModel.FiniteElementModels[index].Materials[2].Id == 1)
-                            {
-                                per5 = 1;
-                                double x1 = this.currentFullModel.FiniteElementModels[index].Materials[2].ElasticModulus;
-                                double x2 = this.currentFullModel.FiniteElementModels[index].Materials[2].PoissonsRatio;
-                                double x3 = this.currentFullModel.FiniteElementModels[index].Materials[2].Tension;
-                                double x4 = this.currentFullModel.FiniteElementModels[index].Materials[2].Tension2;
-                                double x5 = this.currentFullModel.FiniteElementModels[index].Materials[2].Thickness;
-                                double x6 = this.currentFullModel.FiniteElementModels[index].Materials[1].ElasticModulus;
-                                double x7 = this.currentFullModel.FiniteElementModels[index].Materials[1].PoissonsRatio;
-                                double x8 = this.currentFullModel.FiniteElementModels[index].Materials[1].Tension;
-                                double x9 = this.currentFullModel.FiniteElementModels[index].Materials[1].Tension2;
-                                double x10 = this.currentFullModel.FiniteElementModels[index].Materials[1].Thickness;
-                                double x11 = this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus;
-                                double x12 = this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio;
-                                double x13 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension;
-                                double x14 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension2;
-                                double x15 = this.currentFullModel.FiniteElementModels[index].Materials[0].Thickness;
+                        this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus = x6;
+                        this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio = x7;
+                        this.currentFullModel.FiniteElementModels[index].Materials[0].Tension = x8;
+                        this.currentFullModel.FiniteElementModels[index].Materials[0].Tension2 = x9;
+                        this.currentFullModel.FiniteElementModels[index].Materials[0].Thickness = x10;
+                        this.currentFullModel.FiniteElementModels[index].Materials[1].ElasticModulus = x1;
+                        this.currentFullModel.FiniteElementModels[index].Materials[1].PoissonsRatio = x2;
+                        this.currentFullModel.FiniteElementModels[index].Materials[1].Tension = x3;
+                        this.currentFullModel.FiniteElementModels[index].Materials[1].Tension2 = x4;
+                        this.currentFullModel.FiniteElementModels[index].Materials[1].Thickness = x5;
+                    }
+                    if (this.currentFullModel.FiniteElementModels[index].Materials[2].Id == 1 && this.currentFullModel.FiniteElementModels[index].Materials[0].Id == 3 && this.currentFullModel.FiniteElementModels[index].Materials[1].Id == 2)
+                    {
+                        per2 = 1;
 
-                                this.currentFullModel.FiniteElementModels[index].Materials[2].ElasticModulus = x11;
-                                this.currentFullModel.FiniteElementModels[index].Materials[2].PoissonsRatio = x12;
-                                this.currentFullModel.FiniteElementModels[index].Materials[2].Tension = x13;
-                                this.currentFullModel.FiniteElementModels[index].Materials[2].Tension2 = x14;
-                                this.currentFullModel.FiniteElementModels[index].Materials[2].Thickness = x15;
-                                this.currentFullModel.FiniteElementModels[index].Materials[1].ElasticModulus = x1;
-                                this.currentFullModel.FiniteElementModels[index].Materials[1].PoissonsRatio = x2;
-                                this.currentFullModel.FiniteElementModels[index].Materials[1].Tension = x3;
-                                this.currentFullModel.FiniteElementModels[index].Materials[1].Tension2 = x4;
-                                this.currentFullModel.FiniteElementModels[index].Materials[1].Thickness = x5;
-                                this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus = x6;
-                                this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio = x7;
-                                this.currentFullModel.FiniteElementModels[index].Materials[0].Tension = x8;
-                                this.currentFullModel.FiniteElementModels[index].Materials[0].Tension2 = x9;
-                                this.currentFullModel.FiniteElementModels[index].Materials[0].Thickness = x10;
-                            }
-                        }
-            //*************************************************************************************************************               
+                        double x1 = this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus;
+                        double x2 = this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio;
+                        double x3 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension;
+                        double x4 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension2;
+                        double x5 = this.currentFullModel.FiniteElementModels[index].Materials[0].Thickness;
+                        double x6 = this.currentFullModel.FiniteElementModels[index].Materials[2].ElasticModulus;
+                        double x7 = this.currentFullModel.FiniteElementModels[index].Materials[2].PoissonsRatio;
+                        double x8 = this.currentFullModel.FiniteElementModels[index].Materials[2].Tension;
+                        double x9 = this.currentFullModel.FiniteElementModels[index].Materials[2].Tension2;
+                        double x10 = this.currentFullModel.FiniteElementModels[index].Materials[2].Thickness;
 
+                        this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus = x6;
+                        this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio = x7;
+                        this.currentFullModel.FiniteElementModels[index].Materials[0].Tension = x8;
+                        this.currentFullModel.FiniteElementModels[index].Materials[0].Tension2 = x9;
+                        this.currentFullModel.FiniteElementModels[index].Materials[0].Thickness = x10;
+                        this.currentFullModel.FiniteElementModels[index].Materials[2].ElasticModulus = x1;
+                        this.currentFullModel.FiniteElementModels[index].Materials[2].PoissonsRatio = x2;
+                        this.currentFullModel.FiniteElementModels[index].Materials[2].Tension = x3;
+                        this.currentFullModel.FiniteElementModels[index].Materials[2].Tension2 = x4;
+                        this.currentFullModel.FiniteElementModels[index].Materials[2].Thickness = x5;
+                    }
+                    if (this.currentFullModel.FiniteElementModels[index].Materials[2].Id == 2 && this.currentFullModel.FiniteElementModels[index].Materials[1].Id == 3 && this.currentFullModel.FiniteElementModels[index].Materials[0].Id == 1)
+                    {
+                        per3 = 1;
+
+                        double x1 = this.currentFullModel.FiniteElementModels[index].Materials[2].ElasticModulus;
+                        double x2 = this.currentFullModel.FiniteElementModels[index].Materials[2].PoissonsRatio;
+                        double x3 = this.currentFullModel.FiniteElementModels[index].Materials[2].Tension;
+                        double x4 = this.currentFullModel.FiniteElementModels[index].Materials[2].Tension2;
+                        double x5 = this.currentFullModel.FiniteElementModels[index].Materials[2].Thickness;
+                        double x6 = this.currentFullModel.FiniteElementModels[index].Materials[1].ElasticModulus;
+                        double x7 = this.currentFullModel.FiniteElementModels[index].Materials[1].PoissonsRatio;
+                        double x8 = this.currentFullModel.FiniteElementModels[index].Materials[1].Tension;
+                        double x9 = this.currentFullModel.FiniteElementModels[index].Materials[1].Tension2;
+                        double x10 = this.currentFullModel.FiniteElementModels[index].Materials[1].Thickness;
+
+                        this.currentFullModel.FiniteElementModels[index].Materials[2].ElasticModulus = x6;
+                        this.currentFullModel.FiniteElementModels[index].Materials[2].PoissonsRatio = x7;
+                        this.currentFullModel.FiniteElementModels[index].Materials[2].Tension = x8;
+                        this.currentFullModel.FiniteElementModels[index].Materials[2].Tension2 = x9;
+                        this.currentFullModel.FiniteElementModels[index].Materials[2].Thickness = x10;
+                        this.currentFullModel.FiniteElementModels[index].Materials[1].ElasticModulus = x1;
+                        this.currentFullModel.FiniteElementModels[index].Materials[1].PoissonsRatio = x2;
+                        this.currentFullModel.FiniteElementModels[index].Materials[1].Tension = x3;
+                        this.currentFullModel.FiniteElementModels[index].Materials[1].Tension2 = x4;
+                        this.currentFullModel.FiniteElementModels[index].Materials[1].Thickness = x5;
+                    }
+                    if (this.currentFullModel.FiniteElementModels[index].Materials[0].Id == 3 && this.currentFullModel.FiniteElementModels[index].Materials[1].Id == 1 && this.currentFullModel.FiniteElementModels[index].Materials[2].Id == 2)
+                    {
+                        per4 = 1;
+
+                        double x1 = this.currentFullModel.FiniteElementModels[index].Materials[2].ElasticModulus;
+                        double x2 = this.currentFullModel.FiniteElementModels[index].Materials[2].PoissonsRatio;
+                        double x3 = this.currentFullModel.FiniteElementModels[index].Materials[2].Tension;
+                        double x4 = this.currentFullModel.FiniteElementModels[index].Materials[2].Tension2;
+                        double x5 = this.currentFullModel.FiniteElementModels[index].Materials[2].Thickness;
+                        double x6 = this.currentFullModel.FiniteElementModels[index].Materials[1].ElasticModulus;
+                        double x7 = this.currentFullModel.FiniteElementModels[index].Materials[1].PoissonsRatio;
+                        double x8 = this.currentFullModel.FiniteElementModels[index].Materials[1].Tension;
+                        double x9 = this.currentFullModel.FiniteElementModels[index].Materials[1].Tension2;
+                        double x10 = this.currentFullModel.FiniteElementModels[index].Materials[1].Thickness;
+                        double x11 = this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus;
+                        double x12 = this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio;
+                        double x13 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension;
+                        double x14 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension2;
+                        double x15 = this.currentFullModel.FiniteElementModels[index].Materials[0].Thickness;
+
+                        this.currentFullModel.FiniteElementModels[index].Materials[2].ElasticModulus = x6;
+                        this.currentFullModel.FiniteElementModels[index].Materials[2].PoissonsRatio = x7;
+                        this.currentFullModel.FiniteElementModels[index].Materials[2].Tension = x8;
+                        this.currentFullModel.FiniteElementModels[index].Materials[2].Tension2 = x9;
+                        this.currentFullModel.FiniteElementModels[index].Materials[2].Thickness = x10;
+                        this.currentFullModel.FiniteElementModels[index].Materials[1].ElasticModulus = x11;
+                        this.currentFullModel.FiniteElementModels[index].Materials[1].PoissonsRatio = x12;
+                        this.currentFullModel.FiniteElementModels[index].Materials[1].Tension = x13;
+                        this.currentFullModel.FiniteElementModels[index].Materials[1].Tension2 = x14;
+                        this.currentFullModel.FiniteElementModels[index].Materials[1].Thickness = x15;
+                        this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus = x1;
+                        this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio = x2;
+                        this.currentFullModel.FiniteElementModels[index].Materials[0].Tension = x3;
+                        this.currentFullModel.FiniteElementModels[index].Materials[0].Tension2 = x4;
+                        this.currentFullModel.FiniteElementModels[index].Materials[0].Thickness = x5;
+                    }
+                    if (this.currentFullModel.FiniteElementModels[index].Materials[0].Id == 2 && this.currentFullModel.FiniteElementModels[index].Materials[1].Id == 3 && this.currentFullModel.FiniteElementModels[index].Materials[2].Id == 1)
+                    {
+                        per5 = 1;
+
+                        double x1 = this.currentFullModel.FiniteElementModels[index].Materials[2].ElasticModulus;
+                        double x2 = this.currentFullModel.FiniteElementModels[index].Materials[2].PoissonsRatio;
+                        double x3 = this.currentFullModel.FiniteElementModels[index].Materials[2].Tension;
+                        double x4 = this.currentFullModel.FiniteElementModels[index].Materials[2].Tension2;
+                        double x5 = this.currentFullModel.FiniteElementModels[index].Materials[2].Thickness;
+                        double x6 = this.currentFullModel.FiniteElementModels[index].Materials[1].ElasticModulus;
+                        double x7 = this.currentFullModel.FiniteElementModels[index].Materials[1].PoissonsRatio;
+                        double x8 = this.currentFullModel.FiniteElementModels[index].Materials[1].Tension;
+                        double x9 = this.currentFullModel.FiniteElementModels[index].Materials[1].Tension2;
+                        double x10 = this.currentFullModel.FiniteElementModels[index].Materials[1].Thickness;
+                        double x11 = this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus;
+                        double x12 = this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio;
+                        double x13 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension;
+                        double x14 = this.currentFullModel.FiniteElementModels[index].Materials[0].Tension2;
+                        double x15 = this.currentFullModel.FiniteElementModels[index].Materials[0].Thickness;
+                        
+                        this.currentFullModel.FiniteElementModels[index].Materials[2].ElasticModulus = x11;
+                        this.currentFullModel.FiniteElementModels[index].Materials[2].PoissonsRatio = x12;
+                        this.currentFullModel.FiniteElementModels[index].Materials[2].Tension = x13;
+                        this.currentFullModel.FiniteElementModels[index].Materials[2].Tension2 = x14;
+                        this.currentFullModel.FiniteElementModels[index].Materials[2].Thickness = x15;
+                        this.currentFullModel.FiniteElementModels[index].Materials[1].ElasticModulus = x1;
+                        this.currentFullModel.FiniteElementModels[index].Materials[1].PoissonsRatio = x2;
+                        this.currentFullModel.FiniteElementModels[index].Materials[1].Tension = x3;
+                        this.currentFullModel.FiniteElementModels[index].Materials[1].Tension2 = x4;
+                        this.currentFullModel.FiniteElementModels[index].Materials[1].Thickness = x5;
+                        this.currentFullModel.FiniteElementModels[index].Materials[0].ElasticModulus = x6;
+                        this.currentFullModel.FiniteElementModels[index].Materials[0].PoissonsRatio = x7;
+                        this.currentFullModel.FiniteElementModels[index].Materials[0].Tension = x8;
+                        this.currentFullModel.FiniteElementModels[index].Materials[0].Tension2 = x9;
+                        this.currentFullModel.FiniteElementModels[index].Materials[0].Thickness = x10;
+                    }
+                }
             F1.Dispose();
         }
 

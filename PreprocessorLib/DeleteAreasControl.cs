@@ -54,7 +54,6 @@ namespace PreprocessorLib
                         }
                     }
 
-                    
                     // обновляем массив joinTable
                     for (int i = 0; i < 100; i++)
                     {
@@ -70,8 +69,6 @@ namespace PreprocessorLib
                     {
                         this.parent.currentFullModel.geometryModel.joinTable[Convert.ToInt32(this.number.Text) - 1, j] = 0;
                     }
-
-
                     
                     this.parent.currentFullModel.geometryModel.Areas.Remove(area);
                     this.reMakeAreas();
@@ -115,8 +112,6 @@ namespace PreprocessorLib
             control.Dispose();
         }
 
-        
-
         private void deleteAllAreas()
         {
             foreach (MyLine line in this.parent.currentFullModel.geometryModel.Lines)
@@ -131,7 +126,6 @@ namespace PreprocessorLib
             this.parent.currentFullModel.geometryModel.NumOfAreas = 0;
             this.parent.currentFullModel.geometryModel.NumOfAreaNodes = 0;
         }
-
 
         private void okButton_Click(object sender, EventArgs e)
         {

@@ -66,7 +66,7 @@ namespace PreprocessorLib
 
         public void DrawFE(Color color)
         {
- //           if (!this.showOnlyFE.Checked) return;
+            // if (!this.showOnlyFE.Checked) return;
             int currentModel = this.GetCurrentModelIndex();
             bool showNodesNumber = showFENodes.Checked;
             visualizer.DrawFE(currentFullModel.FiniteElementModels[currentModel], color, showFENumbers.Checked, showFENodes.Checked, showFEMaterials.Checked);
@@ -125,17 +125,12 @@ namespace PreprocessorLib
                 if (currentFullModel.geometryModel.Arcs != null)
                     foreach (MyArc arc in currentFullModel.geometryModel.Arcs)
                         visualizer.DrawArc(arc, Color.Blue);
-
-
             }
 
             // отрисовка всех зон
             if (this.showOnlyAreas.Checked)
                 if (currentFullModel.geometryModel.Areas != null)
                     visualizer.DrawAreas(currentFullModel.geometryModel.Areas.ToArray(), Color.Green);
-
-            
-
             // отрисовка КЭ
             if (this.showOnlyFE.Checked)
             {
@@ -485,13 +480,8 @@ namespace PreprocessorLib
                 disposeControl(addPointControl);
         }
 
-
-
         public bool pointFitsArc(MyPoint point, MyArc arc, checkType comparePrecision)
         {
-         
-            
-  
             double radius = Mathematics.FindDist(arc.CenterPoint, arc.StartPoint);
             bool pointFits = false;
             switch (comparePrecision)

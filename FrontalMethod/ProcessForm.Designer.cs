@@ -72,7 +72,6 @@
             this.UseWaitCursor = true;
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

@@ -65,7 +65,6 @@ namespace PreprocessorLib
 
                     this.number.Select();
                     
-                 
                     break;
                 }
             }
@@ -114,7 +113,6 @@ namespace PreprocessorLib
                     break;
                 }
             }           
-
             return lineExists;
         }
 

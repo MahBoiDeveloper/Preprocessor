@@ -67,7 +67,6 @@
             this.Load += new System.EventHandler(this.GridAnalysisStatistics_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

@@ -240,7 +240,6 @@
             this.Text = "Редактирование материалов";
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

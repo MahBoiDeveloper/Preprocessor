@@ -132,8 +132,6 @@ namespace PreprocessorLib
             OK();
         }
 
-
-
         private void number_TextChanged(object sender, EventArgs e)
         {
             if (this.number.TextLength == 0) return;
@@ -215,11 +213,5 @@ namespace PreprocessorLib
             }
             else if (e.KeyChar == (int)Keys.Escape) this.Dispose(); 
         }
-
-
-
-
-
-    
     }
 }

@@ -131,7 +131,6 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StdOptimisation_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

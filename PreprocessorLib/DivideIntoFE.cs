@@ -15,7 +15,6 @@ namespace PreprocessorLib
     {
         ProjectForm parent;
 
-
         public DivideIntoFE()
         {
             InitializeComponent();
@@ -129,14 +128,19 @@ namespace PreprocessorLib
             int[,] joinTable = new int[101, 5];
 
             // ооох.
-            int[,] ICOMP = { { 0, 0, 0, 0, 0 }, { 0, -1, 1, 1, -1 }, { 0, 1, -1, -1, 1 }, { 0, 1, -1, -1, 1 }, { 0, -1, 1, 1, -1 } };
+            int[,] ICOMP = 
+            { 
+                { 0, 0, 0, 0, 0 },
+                { 0, -1, 1, 1, -1 },
+                { 0, 1, -1, -1, 1 },
+                { 0, 1, -1, -1, 1 },
+                { 0, -1, 1, 1, -1 }
+            };
             double[] GLOB = { 0.0, 0.0, -1.0, 3.0, 0.0, -5.0, -1.0, 0.0, 3.0, 0.0 };
-
 
             List<double> CORDD = new List<double>();
             List<int> NOP = new List<int>();
             //List<int> INOUT = new List<int>();
-
 
             int NUMOFELEM;
 
@@ -151,7 +155,6 @@ namespace PreprocessorLib
             int J1 = 0;
             int J2 = 0;
             int J3 = 0;
-
 
             /*формируем массив joinTable*/
             for (int i = 1; i <= 100; i++)
@@ -178,7 +181,6 @@ namespace PreprocessorLib
             foreach (MyArea area in this.parent.currentFullModel.geometryModel.Areas)
                 for (int i = 1; i <= 8; i++)
                     if (nodes.IndexOf(area.Nodes[i - 1]) == -1) nodes.Add(area.Nodes[i - 1]);
-
 
             newModel.XP.Add(0);
             newModel.YP.Add(0);
@@ -220,8 +222,7 @@ namespace PreprocessorLib
                     definingNodesNumbers[i] = newModel.areaDefiningNodes[i, zoneNumber];
                 }
 
-
-                // генерация сетки КЭ --- BEGIN SETKA
+                // генерация сетки КЭ
                 // записываем координаты граничных узлов зоны в массивы areaNodes
                 for (int i = 1; i <= 8; i++)
                 {
@@ -232,7 +233,6 @@ namespace PreprocessorLib
 
                 areaNodesX[9] = areaNodesX[1];
                 areaNodesY[9] = areaNodesY[1];
-
 
                 // вычисления шага сетки
 
@@ -387,7 +387,6 @@ namespace PreprocessorLib
                 * кроме угловых, тоже внутренние.
                 * узлы не на границе зоны - внутренние */
 
-
                 try
                 {
                     for (int INODE = 2; INODE <= nodeRowsCount - 1; INODE++)
@@ -403,9 +402,9 @@ namespace PreprocessorLib
                     return -1;
                 }
                 // > Определение внешних и внутренних узлов
-                // > завершена генерация сетки конечных элементов --- END SETKA
+                // > завершена генерация сетки конечных элементов
 
-                // < определение конечных элементов (группировка узлов)--- BEGIN ELEMENT FORM
+                // < определение конечных элементов (группировка узлов)
 
                 K = 1;
                 for (int i = 1; i <= nodeRowsCount; i++)
@@ -436,6 +435,7 @@ namespace PreprocessorLib
 
                         //DIAG1 = Math.Pow((Math.Pow((xCord[i, j] - xCord[i + 1, j - 1]), 2) + Math.Pow((yCord[i, j] - yCord[i + 1, j - 1]), 2) + Math.Pow((ZC[i, j] - ZC[i + 1, j - 1]), 2)), 0.5);
                         //DIAG2 = Math.Pow((Math.Pow((xCord[i + 1, j] - xCord[i, j - 1]), 2) + Math.Pow((yCord[i + 1, j] - yCord[i, j - 1]), 2) + Math.Pow((ZC[i + 1, j] - ZC[i, j - 1]), 2)), 0.5);
+
                         NR[1] = nodeColsCount * i + j - 1;
                         NR[2] = nodeColsCount * i + j;
                         NR[3] = nodeColsCount * (i - 1) + j;
@@ -478,14 +478,12 @@ namespace PreprocessorLib
                             NOP[(NCN * (NEL - 1) + 1)] = NE[J1];
                             NOP[(NCN * (NEL - 1) + 2)] = NE[J2];
                             NOP[(NCN * (NEL - 1) + 3)] = NE[J3];
-                            // > завершено определение конечных элементов (группировка узлов)--- END ELEMENT FORM   
+                            // > завершено определение конечных элементов (группировка узлов) 
                         }
                     }
                 }
             }
-
             fillObjectsFromArrays(newModel, CORDD, NOP, MAXNP, NEL, zonesCount);
-
             return 0;
         }
 

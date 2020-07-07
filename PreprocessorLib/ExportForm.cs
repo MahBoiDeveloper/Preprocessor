@@ -56,7 +56,6 @@ namespace PreprocessorLib
 
         private void WholeModel_CheckedChanged(object sender, EventArgs e)
         {
-
         }
     }
 }

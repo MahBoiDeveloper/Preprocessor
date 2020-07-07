@@ -29,13 +29,9 @@ namespace PreprocessorLib
         ProgressDots progress;
 
         public bool applyingForce = false;
-
         private int UndoStackSize = 20;
-
         public FullModel currentFullModel;
-
         public string FullProjectFileName;
-
         public bool modelDiffersFromSaved = false;
 
         AddPointsControl addPointControl;
@@ -1364,8 +1360,6 @@ namespace PreprocessorLib
             delauneyTriangulateForm.Show();
         }
 
-        
-
         private void ProjectForm_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.X > constructionArea.Left && e.Y > constructionArea.Top &&
@@ -1443,7 +1437,7 @@ namespace PreprocessorLib
             backupBox.Visible = backupBox.Enabled = true;
             Controls.Add(backupBox);
             backupBox.BringToFront();
-            // сам opengl-контрол скрываем. Делаем всё это потому, что то ли у Tао
+            // сам opengl-контрол скрываем. Делаем всё это, т.к. у Tао то ли
             // проблемы с поддержкой MDI, то ли я плохо читал матчасть :)
             constructionArea.Enabled = constructionArea.Visible = false;
             visualizer = null;
@@ -1451,22 +1445,18 @@ namespace PreprocessorLib
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
-
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
-
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
-
         }
 
         private void label9_Click(object sender, EventArgs e)
         {
-
         }
 
         private void ProjectForm_Activated(object sender, EventArgs e)

@@ -14,7 +14,8 @@ namespace ModelComponents
         public List<DensityPoint> densityPoints = new List<DensityPoint>();
         public string currentGridName = "";
 
-        public int IdCandidate {
+        public int IdCandidate
+        {
             get { return FiniteElementModels.Count + 1; }                 
         }
 

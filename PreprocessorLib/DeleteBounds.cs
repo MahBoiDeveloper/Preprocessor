@@ -36,7 +36,6 @@ namespace PreprocessorLib
             int currentModel = this.parent.GetCurrentModelIndex();
             MyFiniteElementModel model = this.parent.currentFullModel.FiniteElementModels[currentModel];
             
-           
             if (rbnOnLine.Checked)
             {
                 MyLine lineToBound;
@@ -115,8 +114,6 @@ namespace PreprocessorLib
                 node.BoundType = 10;
             if (this.cb1.Checked && !this.cb2.Checked && (node.BoundType == 11))
                 node.BoundType = 1;
-
-
         }
 
         private void renewNfixNB(int modelIndex)
@@ -134,7 +131,6 @@ namespace PreprocessorLib
                 currentModel.NBC.Add(node.Id);
             }
             currentModel.NB = boundedNodes.Count;
-        
         }
 
         private void txtLine_Enter(object sender, EventArgs e)
@@ -170,7 +166,6 @@ namespace PreprocessorLib
             this.parent.ReDrawAll();
             
             this.parent.clearSelection();
-        
         }
 
         private void txtLine_TextChanged(object sender, EventArgs e)

@@ -141,7 +141,5 @@ namespace PreprocessorLib
             }
             else if (e.KeyChar == (int)Keys.Escape) this.Dispose(); 
         }
-
-
     }
 }
